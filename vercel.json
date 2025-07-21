@@ -1,7 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "builds": [
+    {
+      "src": "dist/spa/**/*",
+      "use": "@vercel/static"
+    }
   ],
-   "builds": [{ "src": "server.ts", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "server.ts" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
