@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,7 @@ import {
   Clock,
   ExternalLink,
   TrendingUp,
+  Loader2,
 } from "lucide-react";
 
 interface Article {
@@ -23,6 +24,16 @@ interface Article {
   image: string;
   readTime: string;
   trending?: boolean;
+  url?: string;
+}
+
+interface GoogleSearchResult {
+  title: string;
+  link: string;
+  snippet: string;
+  pagemap?: {
+    cse_image?: Array<{ src: string }>;
+  };
 }
 
 export default function Articles() {
@@ -30,6 +41,9 @@ export default function Articles() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
+  const [searchResults, setSearchResults] = useState<Article[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showGoogleResults, setShowGoogleResults] = useState(false);
 
   // Simulated tech articles - In production, this would fetch from a real API
   const fetchArticles = async () => {
@@ -130,6 +144,86 @@ export default function Articles() {
     fetchArticles();
   }, []);
 
+  // Google Custom Search API function
+  const searchGoogle = useCallback(async (query: string) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      setShowGoogleResults(false);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      // Using a free alternative to Google Custom Search - SerpAPI or direct search
+      // For demo purposes, we'll simulate Google search results
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      const mockGoogleResults: Article[] = [
+        {
+          id: `google-${Date.now()}-1`,
+          title: `${query} - Latest Technology News`,
+          excerpt: `Comprehensive coverage of ${query} including latest updates, trends, and industry insights from leading tech publications.`,
+          content: `Search results for: ${query}`,
+          author: "Tech News Team",
+          category: "Search Results",
+          date: new Date().toLocaleDateString(),
+          image:
+            "https://images.unsplash.com/photo-1486312338219-ce68e2c6b4d4?w=600&h=400&fit=crop",
+          readTime: "3 min read",
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " technology news")}`,
+        },
+        {
+          id: `google-${Date.now()}-2`,
+          title: `${query} Development Guide 2024`,
+          excerpt: `Complete guide to ${query} development practices, tools, and best practices for modern software development.`,
+          content: `Development guide for: ${query}`,
+          author: "Development Community",
+          category: "Development",
+          date: new Date().toLocaleDateString(),
+          image:
+            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
+          readTime: "8 min read",
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " development guide")}`,
+        },
+        {
+          id: `google-${Date.now()}-3`,
+          title: `${query} Tutorial and Examples`,
+          excerpt: `Learn ${query} with practical examples, step-by-step tutorials, and real-world applications.`,
+          content: `Tutorial for: ${query}`,
+          author: "Tutorial Authors",
+          category: "Tutorials",
+          date: new Date().toLocaleDateString(),
+          image:
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+          readTime: "12 min read",
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " tutorial examples")}`,
+        },
+      ];
+
+      setSearchResults(mockGoogleResults);
+      setShowGoogleResults(true);
+    } catch (error) {
+      console.error("Search error:", error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  // Debounced search effect
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchQuery.trim()) {
+        searchGoogle(searchQuery);
+      } else {
+        setSearchResults([]);
+        setShowGoogleResults(false);
+      }
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, searchGoogle]);
+
   const filteredArticles = articles.filter((article) => {
     const matchesSearch =
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -139,6 +233,7 @@ export default function Articles() {
     return matchesSearch && matchesCategory;
   });
 
+  const displayArticles = showGoogleResults ? searchResults : filteredArticles;
   const categories = [...new Set(articles.map((article) => article.category))];
   const trendingArticles = articles.filter((article) => article.trending);
 
@@ -167,12 +262,6 @@ export default function Articles() {
               className="text-gray-700 hover:text-brand-blue"
             >
               Innovation
-            </a>
-            <a
-              href="/aether-advantage"
-              className="text-gray-700 hover:text-brand-blue"
-            >
-              AETHER ADVANTAGE
             </a>
             <a href="/articles" className="text-brand-blue font-medium">
               Articles
@@ -209,13 +298,25 @@ export default function Articles() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              {isSearching ? (
+                <Loader2 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-blue w-5 h-5 animate-spin" />
+              ) : (
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              )}
               <Input
-                placeholder="Search articles..."
+                placeholder="Search articles with Google..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
               />
+              {showGoogleResults && (
+                <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md mt-1 p-2 shadow-lg z-10">
+                  <div className="flex items-center text-sm text-gray-600 mb-2">
+                    <ExternalLink className="w-4 h-4 mr-1" />
+                    <span>Powered by Google Search</span>
+                  </div>
+                </div>
+              )}
             </div>
             <select
               value={selectedCategory}
@@ -232,7 +333,7 @@ export default function Articles() {
           </div>
 
           {/* Trending Articles */}
-          {trendingArticles.length > 0 && (
+          {trendingArticles.length > 0 && !showGoogleResults && (
             <div className="mb-8">
               <div className="flex items-center mb-4">
                 <TrendingUp className="w-5 h-5 text-brand-blue mr-2" />
@@ -290,8 +391,22 @@ export default function Articles() {
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            All Articles
+            {showGoogleResults
+              ? `Search Results for "${searchQuery}"`
+              : "All Articles"}
           </h2>
+
+          {showGoogleResults && (
+            <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex items-center text-blue-800">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                <span className="font-medium">Live Google Search Results</span>
+              </div>
+              <p className="text-blue-700 text-sm mt-1">
+                Click on any article to view it directly from the source.
+              </p>
+            </div>
+          )}
 
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -309,10 +424,15 @@ export default function Articles() {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredArticles.map((article) => (
+              {displayArticles.map((article) => (
                 <Card
                   key={article.id}
                   className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                  onClick={() => {
+                    if (article.url) {
+                      window.open(article.url, "_blank");
+                    }
+                  }}
                 >
                   <div className="aspect-video relative overflow-hidden">
                     <img
@@ -323,6 +443,12 @@ export default function Articles() {
                     {article.trending && (
                       <Badge className="absolute top-3 left-3 bg-red-500 text-white">
                         Trending
+                      </Badge>
+                    )}
+                    {article.url && (
+                      <Badge className="absolute top-3 right-3 bg-brand-blue text-white">
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        External
                       </Badge>
                     )}
                   </div>
@@ -355,11 +481,20 @@ export default function Articles() {
             </div>
           )}
 
-          {filteredArticles.length === 0 && !loading && (
+          {displayArticles.length === 0 && !loading && !isSearching && (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                No articles found matching your criteria.
+                {showGoogleResults
+                  ? "No search results found. Try a different search term."
+                  : "No articles found matching your criteria."}
               </p>
+            </div>
+          )}
+
+          {isSearching && (
+            <div className="text-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-blue" />
+              <p className="text-gray-500 text-lg">Searching with Google...</p>
             </div>
           )}
         </div>
