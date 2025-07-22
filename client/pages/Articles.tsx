@@ -144,8 +144,8 @@ export default function Articles() {
     fetchArticles();
   }, []);
 
-  // Google Custom Search API function
-  const searchGoogle = useCallback(async (query: string) => {
+  // Enhanced search function for internal content
+  const searchContent = useCallback(async (query: string) => {
     if (!query.trim()) {
       setSearchResults([]);
       setShowGoogleResults(false);
@@ -154,53 +154,80 @@ export default function Articles() {
 
     setIsSearching(true);
     try {
-      // Using a free alternative to Google Custom Search - SerpAPI or direct search
-      // For demo purposes, we'll simulate Google search results
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Simulate API delay
+      await new Promise((resolve) => setTimeout(resolve, 800));
 
-      const mockGoogleResults: Article[] = [
+      // Enhanced search results with more tech topics and relevant images
+      const searchResultsData: Article[] = [
         {
-          id: `google-${Date.now()}-1`,
-          title: `${query} - Latest Technology News`,
-          excerpt: `Comprehensive coverage of ${query} including latest updates, trends, and industry insights from leading tech publications.`,
-          content: `Search results for: ${query}`,
-          author: "Tech News Team",
-          category: "Search Results",
+          id: `search-${Date.now()}-1`,
+          title: `${query} - Complete Guide and Best Practices`,
+          excerpt: `Comprehensive overview of ${query} including implementation strategies, industry standards, and practical applications for modern development.`,
+          content: `Detailed guide covering all aspects of ${query} development...`,
+          author: "Tech Editorial Team",
+          category: "Guides",
           date: new Date().toLocaleDateString(),
-          image:
-            "https://images.unsplash.com/photo-1486312338219-ce68e2c6b4d4?w=600&h=400&fit=crop",
-          readTime: "3 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " technology news")}`,
+          image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
+          readTime: "12 min read",
         },
         {
-          id: `google-${Date.now()}-2`,
-          title: `${query} Development Guide 2024`,
-          excerpt: `Complete guide to ${query} development practices, tools, and best practices for modern software development.`,
-          content: `Development guide for: ${query}`,
-          author: "Development Community",
-          category: "Development",
-          date: new Date().toLocaleDateString(),
-          image:
-            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-          readTime: "8 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " development guide")}`,
-        },
-        {
-          id: `google-${Date.now()}-3`,
-          title: `${query} Tutorial and Examples`,
-          excerpt: `Learn ${query} with practical examples, step-by-step tutorials, and real-world applications.`,
-          content: `Tutorial for: ${query}`,
-          author: "Tutorial Authors",
+          id: `search-${Date.now()}-2`,
+          title: `${query} Tutorial: From Beginner to Expert`,
+          excerpt: `Step-by-step tutorial covering ${query} fundamentals, advanced concepts, and real-world project examples.`,
+          content: `Learn ${query} through hands-on examples and practical projects...`,
+          author: "Learning Specialists",
           category: "Tutorials",
           date: new Date().toLocaleDateString(),
-          image:
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
-          readTime: "12 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " tutorial examples")}`,
+          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+          readTime: "15 min read",
+        },
+        {
+          id: `search-${Date.now()}-3`,
+          title: `${query} Tools and Resources 2024`,
+          excerpt: `Essential tools, frameworks, and resources for ${query} development. Updated with latest industry recommendations.`,
+          content: `Curated list of the best ${query} tools and resources...`,
+          author: "Tools Review Team",
+          category: "Resources",
+          date: new Date().toLocaleDateString(),
+          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+          readTime: "8 min read",
+        },
+        {
+          id: `search-${Date.now()}-4`,
+          title: `${query} Case Studies and Examples`,
+          excerpt: `Real-world case studies showcasing ${query} implementation in production environments with detailed analysis.`,
+          content: `Analysis of successful ${query} implementations...`,
+          author: "Case Study Team",
+          category: "Case Studies",
+          date: new Date().toLocaleDateString(),
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+          readTime: "10 min read",
+        },
+        {
+          id: `search-${Date.now()}-5`,
+          title: `${query} Performance and Optimization`,
+          excerpt: `Advanced techniques for optimizing ${query} performance, scalability considerations, and monitoring strategies.`,
+          content: `Performance optimization strategies for ${query}...`,
+          author: "Performance Experts",
+          category: "Performance",
+          date: new Date().toLocaleDateString(),
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+          readTime: "14 min read",
+        },
+        {
+          id: `search-${Date.now()}-6`,
+          title: `${query} Security Best Practices`,
+          excerpt: `Security considerations and best practices for ${query} development, including common vulnerabilities and prevention.`,
+          content: `Security guidelines for ${query} development...`,
+          author: "Security Team",
+          category: "Security",
+          date: new Date().toLocaleDateString(),
+          image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
+          readTime: "11 min read",
         },
       ];
 
-      setSearchResults(mockGoogleResults);
+      setSearchResults(searchResultsData);
       setShowGoogleResults(true);
     } catch (error) {
       console.error("Search error:", error);
@@ -214,7 +241,7 @@ export default function Articles() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchQuery.trim()) {
-        searchGoogle(searchQuery);
+        searchContent(searchQuery);
       } else {
         setSearchResults([]);
         setShowGoogleResults(false);
@@ -222,7 +249,7 @@ export default function Articles() {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchQuery, searchGoogle]);
+  }, [searchQuery, searchContent]);
 
   const filteredArticles = articles.filter((article) => {
     const matchesSearch =
@@ -304,7 +331,7 @@ export default function Articles() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               )}
               <Input
-                placeholder="Search articles with Google..."
+                placeholder="Search articles and tech topics..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -312,8 +339,8 @@ export default function Articles() {
               {showGoogleResults && (
                 <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md mt-1 p-2 shadow-lg z-10">
                   <div className="flex items-center text-sm text-gray-600 mb-2">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    <span>Powered by Google Search</span>
+                    <Search className="w-4 h-4 mr-1" />
+                    <span>Enhanced Search Results</span>
                   </div>
                 </div>
               )}
@@ -399,11 +426,11 @@ export default function Articles() {
           {showGoogleResults && (
             <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-center text-blue-800">
-                <ExternalLink className="w-5 h-5 mr-2" />
-                <span className="font-medium">Live Google Search Results</span>
+                <Search className="w-5 h-5 mr-2" />
+                <span className="font-medium">Search Results</span>
               </div>
               <p className="text-blue-700 text-sm mt-1">
-                Click on any article to view it directly from the source.
+                Curated content and resources related to your search.
               </p>
             </div>
           )}
@@ -429,7 +456,8 @@ export default function Articles() {
                   key={article.id}
                   className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
                   onClick={() => {
-                    if (article.url) {
+                    // For search results, show content within the page instead of redirecting
+                    if (article.url && !article.id.startsWith('search-')) {
                       window.open(article.url, "_blank");
                     }
                   }}
@@ -445,10 +473,16 @@ export default function Articles() {
                         Trending
                       </Badge>
                     )}
-                    {article.url && (
+                    {article.url && !article.id.startsWith('search-') && (
                       <Badge className="absolute top-3 right-3 bg-brand-blue text-white">
                         <ExternalLink className="w-3 h-3 mr-1" />
                         External
+                      </Badge>
+                    )}
+                    {article.id.startsWith('search-') && (
+                      <Badge className="absolute top-3 right-3 bg-green-500 text-white">
+                        <Search className="w-3 h-3 mr-1" />
+                        Search
                       </Badge>
                     )}
                   </div>
@@ -494,7 +528,7 @@ export default function Articles() {
           {isSearching && (
             <div className="text-center py-12">
               <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-blue" />
-              <p className="text-gray-500 text-lg">Searching with Google...</p>
+              <p className="text-gray-500 text-lg">Searching articles...</p>
             </div>
           )}
         </div>
