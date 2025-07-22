@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import {
   ChevronRight,
+  ChevronLeft,
   Search,
   MapPin,
   Building2,
@@ -33,6 +34,59 @@ export default function Innovation() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Amara Adebayo",
+      role: "Data Analyst",
+      initials: "AA",
+      quote: "I started with AETHER HUB in March, completely new to Data Analysis. Through their comprehensive training program, I learned Excel, Power BI, and SQL. The instructors were incredibly supportive, and the hands-on approach made complex concepts easy to understand. Today, I'm confident in my data analysis skills and ready to take on new challenges in the field.",
+      gradient: "from-green-500 via-teal-500 to-blue-600"
+    },
+    {
+      id: 2,
+      name: "Michael Rodriguez",
+      role: "Full Stack Developer",
+      initials: "MR",
+      quote: "AETHER HUB transformed my career completely. The React and Node.js bootcamp was intensive but incredibly rewarding. The real-world projects and mentorship from industry experts gave me the confidence to land my dream job. The curriculum is up-to-date with the latest technologies and industry standards.",
+      gradient: "from-purple-500 via-pink-500 to-red-500"
+    },
+    {
+      id: 3,
+      name: "Sarah Chen",
+      role: "UX/UI Designer",
+      initials: "SC",
+      quote: "The UX/UI design program at AETHER HUB exceeded my expectations. From wireframing to prototyping, I learned industry-standard tools like Figma and Adobe Creative Suite. The portfolio projects I built during the course directly helped me secure interviews at top tech companies. The community support is outstanding.",
+      gradient: "from-orange-500 via-red-500 to-pink-600"
+    },
+    {
+      id: 4,
+      name: "David Okonkwo",
+      role: "Digital Marketing Specialist",
+      initials: "DO",
+      quote: "AETHER HUB's digital marketing course opened up a whole new world for me. I learned everything from SEO and content marketing to social media strategy and analytics. The practical assignments and real client projects gave me hands-on experience that traditional courses lack. I now run my own digital marketing agency.",
+      gradient: "from-cyan-500 via-blue-500 to-indigo-600"
+    }
+  ];
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   const featuredCities = [
     {
@@ -504,28 +558,24 @@ export default function Innovation() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Testimonials Slideshow */}
         <section className="px-6 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Testimonials
+                Student Success Stories
               </h2>
+              <p className="text-lg text-gray-600">Hear from our graduates who transformed their careers</p>
             </div>
 
             <div className="relative">
-              <Card className="p-12 text-center bg-gradient-to-br from-green-500 via-teal-500 to-blue-600 text-white relative overflow-hidden">
+              {/* Main Testimonial Card */}
+              <Card className={`p-12 text-center bg-gradient-to-br ${testimonials[currentTestimonial].gradient} text-white relative overflow-hidden transition-all duration-500 ease-in-out`}>
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="relative z-10">
                   <Quote className="w-16 h-16 mx-auto mb-8 opacity-80" />
-                  <blockquote className="text-2xl font-medium mb-8 leading-relaxed max-w-4xl mx-auto">
-                    "I started with AETHER HUB in March, completely new to Data
-                    Analysis. Through their comprehensive training program, I
-                    learned Excel, Power BI, and SQL. The instructors were
-                    incredibly supportive, and the hands-on approach made
-                    complex concepts easy to understand. Today, I'm confident in
-                    my data analysis skills and ready to take on new challenges
-                    in the field."
+                  <blockquote className="text-2xl font-medium mb-8 leading-relaxed max-w-4xl mx-auto min-h-[120px] flex items-center justify-center">
+                    "{testimonials[currentTestimonial].quote}"
                   </blockquote>
                   <div className="flex items-center justify-center space-x-1 mb-6">
                     {[...Array(5)].map((_, i) => (
@@ -537,17 +587,63 @@ export default function Innovation() {
                   </div>
                   <div className="flex items-center justify-center space-x-4">
                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                      <span className="text-lg font-bold">AA</span>
+                      <span className="text-lg font-bold">{testimonials[currentTestimonial].initials}</span>
                     </div>
                     <div className="text-left">
                       <cite className="font-bold text-lg block">
-                        Amara Adebayo
+                        {testimonials[currentTestimonial].name}
                       </cite>
-                      <div className="text-sm opacity-90">Data Analyst</div>
+                      <div className="text-sm opacity-90">{testimonials[currentTestimonial].role}</div>
                     </div>
                   </div>
                 </div>
               </Card>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevTestimonial}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200 z-20"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200 z-20"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex items-center justify-center space-x-3 mt-8">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentTestimonial
+                        ? 'bg-brand-blue scale-125'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Progress Bar */}
+              <div className="mt-6 max-w-md mx-auto">
+                <div className="w-full bg-gray-200 rounded-full h-1">
+                  <div
+                    className="bg-brand-blue h-1 rounded-full transition-all duration-200 ease-linear"
+                    style={{ width: `${((currentTestimonial + 1) / testimonials.length) * 100}%` }}
+                  ></div>
+                </div>
+                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                  <span>{currentTestimonial + 1} of {testimonials.length}</span>
+                  <span>Auto-rotating every 5s</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
