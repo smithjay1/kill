@@ -566,39 +566,28 @@ export default function Innovation() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {[
                 {
-                  name: "Sarah Johnson",
-                  role: "Lead Data Scientist",
-                  expertise: "Machine Learning & Analytics",
-                  image:
-                    "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop",
-                  experience: "8+ years at Google & Microsoft",
-                },
-                {
-                  name: "Michael Chen",
-                  role: "Senior Full Stack Developer",
-                  expertise: "React, Node.js & Cloud",
+                  name: "Mc-Vester Okoh",
+                  role: "Brand Strategist",
+                  expertise: "Adobe After Effects, Power BI & My SQL",
                   image:
                     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
-                  experience: "10+ years at Meta & Amazon",
                 },
                 {
-                  name: "Aisha Patel",
-                  role: "UX/UI Design Director",
-                  expertise: "Product Design & Strategy",
-                  image:
-                    "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop",
-                  experience: "7+ years at Apple & Spotify",
-                },
-                {
-                  name: "David Rodriguez",
-                  role: "DevOps Engineer",
-                  expertise: "Cloud Architecture & Security",
+                  name: "Abdul Kader",
+                  role: "Senior Full Stack Developer",
+                  expertise: "React, Node.js, Blender Animations",
                   image:
                     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
-                  experience: "9+ years at AWS & Netflix",
+                },
+                {
+                  name: "Duke Diamond",
+                  role: "Video Editor",
+                  expertise: "Filmmaker, Mobile Videographer, Cinematographer",
+                  image:
+                    "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop",
                 },
               ].map((expert, index) => (
                 <Card
@@ -623,11 +612,6 @@ export default function Innovation() {
                     <p className="text-gray-600 mb-3 text-sm">
                       {expert.expertise}
                     </p>
-                    <div className="pt-3 border-t border-gray-100">
-                      <span className="text-sm text-gray-500">
-                        {expert.experience}
-                      </span>
-                    </div>
                   </CardContent>
                 </Card>
               ))}
