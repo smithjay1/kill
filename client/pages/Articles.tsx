@@ -156,8 +156,8 @@ export default function Articles() {
     try {
       // Using a free alternative to Google Custom Search - SerpAPI or direct search
       // For demo purposes, we'll simulate Google search results
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const mockGoogleResults: Article[] = [
         {
           id: `google-${Date.now()}-1`,
@@ -167,9 +167,10 @@ export default function Articles() {
           author: "Tech News Team",
           category: "Search Results",
           date: new Date().toLocaleDateString(),
-          image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6b4d4?w=600&h=400&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1486312338219-ce68e2c6b4d4?w=600&h=400&fit=crop",
           readTime: "3 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " technology news")}`
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " technology news")}`,
         },
         {
           id: `google-${Date.now()}-2`,
@@ -179,9 +180,10 @@ export default function Articles() {
           author: "Development Community",
           category: "Development",
           date: new Date().toLocaleDateString(),
-          image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
           readTime: "8 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " development guide")}`
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " development guide")}`,
         },
         {
           id: `google-${Date.now()}-3`,
@@ -191,16 +193,17 @@ export default function Articles() {
           author: "Tutorial Authors",
           category: "Tutorials",
           date: new Date().toLocaleDateString(),
-          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
           readTime: "12 min read",
-          url: `https://www.google.com/search?q=${encodeURIComponent(query + " tutorial examples")}`
-        }
+          url: `https://www.google.com/search?q=${encodeURIComponent(query + " tutorial examples")}`,
+        },
       ];
-      
+
       setSearchResults(mockGoogleResults);
       setShowGoogleResults(true);
     } catch (error) {
-      console.error('Search error:', error);
+      console.error("Search error:", error);
       setSearchResults([]);
     } finally {
       setIsSearching(false);
@@ -388,9 +391,11 @@ export default function Articles() {
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            {showGoogleResults ? `Search Results for "${searchQuery}"` : 'All Articles'}
+            {showGoogleResults
+              ? `Search Results for "${searchQuery}"`
+              : "All Articles"}
           </h2>
-          
+
           {showGoogleResults && (
             <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-center text-blue-800">
@@ -425,7 +430,7 @@ export default function Articles() {
                   className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
                   onClick={() => {
                     if (article.url) {
-                      window.open(article.url, '_blank');
+                      window.open(article.url, "_blank");
                     }
                   }}
                 >
@@ -479,17 +484,17 @@ export default function Articles() {
           {displayArticles.length === 0 && !loading && !isSearching && (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                {showGoogleResults ? 'No search results found. Try a different search term.' : 'No articles found matching your criteria.'}
+                {showGoogleResults
+                  ? "No search results found. Try a different search term."
+                  : "No articles found matching your criteria."}
               </p>
             </div>
           )}
-          
+
           {isSearching && (
             <div className="text-center py-12">
               <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-blue" />
-              <p className="text-gray-500 text-lg">
-                Searching with Google...
-              </p>
+              <p className="text-gray-500 text-lg">Searching with Google...</p>
             </div>
           )}
         </div>
