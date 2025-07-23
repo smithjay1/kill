@@ -222,7 +222,7 @@ Thank you!`;
             }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            {step === 'payment' ? 'Back to Course Selection' : 'Back to AETHER HUB'}
+            Back to AETHER HUB
           </Button>
           <div className="flex items-center space-x-2">
             <img
