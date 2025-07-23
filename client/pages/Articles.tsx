@@ -427,7 +427,7 @@ export default function Articles() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               )}
               <Input
-                placeholder="Search articles and tech topics..."
+                placeholder={searchMode === 'google' ? "Search tech topics (powered by Google)" : "Search local articles..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
