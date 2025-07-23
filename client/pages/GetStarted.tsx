@@ -263,8 +263,15 @@ Thank you!`;
                             <p className="text-gray-600 text-sm mb-4">
                               {course.description}
                             </p>
-                            <div className="text-brand-blue font-bold text-xl mb-2">
-                              {course.price}
+                            <div className="flex flex-col items-center mb-2">
+                              {course.originalPrice && (
+                                <span className="text-sm text-gray-500 line-through mb-1">
+                                  {course.originalPrice}
+                                </span>
+                              )}
+                              <div className="text-brand-blue font-bold text-xl">
+                                {course.price}
+                              </div>
                             </div>
                             <div className="text-gray-600 text-sm">
                               {course.duration}
