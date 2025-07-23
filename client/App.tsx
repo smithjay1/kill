@@ -13,6 +13,7 @@ import AetherAdvantage from "./pages/AetherAdvantage";
 import GetStarted from "./pages/GetStarted";
 import Contact from "./pages/Contact";
 import Articles from "./pages/Articles";
+import GoogleSearchDemo from "./pages/GoogleSearchDemo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
