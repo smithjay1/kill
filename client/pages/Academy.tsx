@@ -255,8 +255,15 @@ export default function Academy() {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="text-2xl font-bold text-brand-blue">
-                {course.price}
+              <div className="flex flex-col">
+                {course.originalPrice && (
+                  <span className="text-sm text-gray-500 line-through">
+                    {course.originalPrice}
+                  </span>
+                )}
+                <div className="text-2xl font-bold text-brand-blue">
+                  {course.price}
+                </div>
               </div>
               <Button
                 className="bg-brand-blue hover:bg-blue-600 text-white"
