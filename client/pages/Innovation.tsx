@@ -288,6 +288,9 @@ export default function Innovation() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Browse Courses by Keyword or Category
               </h2>
+              <p className="text-lg text-gray-600">
+                Find the perfect course to advance your tech career
+              </p>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 mb-6">
