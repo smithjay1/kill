@@ -93,9 +93,10 @@ export default function Academy() {
           "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F78e6d7a6d371466e9d5dfff0cb45a68b?format=webp&width=800",
         description:
           "HTML, CSS, Page Structure, Responsive Layouts, Hosting & Deployment Basics",
-        duration: "6 weeks",
+        duration: "8 weeks",
         mode: "Virtual",
-        price: "₦50,000",
+        originalPrice: "₦80,000",
+        price: "₦60,000",
         features: [
           "HTML & CSS",
           "Responsive Design",
@@ -106,7 +107,7 @@ export default function Academy() {
       {
         id: "frontend-js",
         title: "Frontend Development (JavaScript)",
-        level: "Beginner-Intermediate",
+        level: "Beginner to Intermediate",
         levelColor: "bg-yellow-500",
         image:
           "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop",
@@ -114,7 +115,8 @@ export default function Academy() {
           "JS (ES6+), DOM, Git & GitHub, Flexbox, Grid Layouts, APIs (Basic Fetch)",
         duration: "10 weeks",
         mode: "Virtual",
-        price: "₦60,000",
+        originalPrice: "₦100,000",
+        price: "₦80,000",
         features: [
           "Modern JavaScript",
           "Git & GitHub",
@@ -133,7 +135,8 @@ export default function Academy() {
           "ReactJS, Node.js & Express, MongoDB/SQL, REST APIs & Authentication, Deployment",
         duration: "16 weeks",
         mode: "Virtual",
-        price: "₦80,000",
+        originalPrice: "₦150,000",
+        price: "₦120,000",
         features: [
           "React Development",
           "Backend with Node.js",
@@ -572,7 +575,7 @@ export default function Academy() {
             {/* Coming Soon */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center">
-                🧪 Coming Soon
+                ���� Coming Soon
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 {courses.comingSoon.map((course) => (
