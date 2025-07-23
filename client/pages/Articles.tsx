@@ -569,6 +569,54 @@ export default function Articles() {
             </div>
           )}
 
+          {/* Google Search Results Display */}
+          {showGoogleResults && searchMode === 'google' && googleSearchResults.length > 0 && !loading && (
+            <div className="mb-8">
+              <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
+                {googleSearchResults.map((result, index) => (
+                  <Card
+                    key={index}
+                    className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                    onClick={() => window.open(result.link, '_blank')}
+                  >
+                    <div className="flex gap-4 p-6">
+                      {result.pagemap?.cse_thumbnail?.[0] && (
+                        <div className="flex-shrink-0">
+                          <img
+                            src={result.pagemap.cse_thumbnail[0].src}
+                            alt={result.title}
+                            className="w-20 h-20 object-cover rounded-lg"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center mb-2">
+                          <Badge variant="outline" className="text-xs mr-2">
+                            {result.displayLink}
+                          </Badge>
+                          <ExternalLink className="w-3 h-3 text-gray-400" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors line-clamp-2">
+                          {result.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm line-clamp-3 mb-2">
+                          {result.snippet}
+                        </p>
+                        <p className="text-brand-blue text-sm font-medium hover:underline">
+                          {result.formattedUrl}
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[...Array(6)].map((_, index) => (
