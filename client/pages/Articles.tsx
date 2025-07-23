@@ -412,19 +412,7 @@ export default function Articles() {
             </div>
           )}
 
-          {/* Google CSE Demo Link */}
-          <div className="text-center mb-6">
-            <Button
-              onClick={() => window.location.href = '/google-search-demo'}
-              className="bg-green-600 hover:bg-green-700 text-white"
-            >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Try Live Google Custom Search Demo
-            </Button>
-            <p className="text-sm text-gray-600 mt-2">
-              Experience real Google search results powered by CSE (Custom Search Engine)
-            </p>
-          </div>
+
 
           {/* Search Mode Toggle */}
           <div className="flex items-center justify-center mb-6">
