@@ -649,12 +649,20 @@ export default function Articles() {
             </div>
           )}
 
-          {displayArticles.length === 0 && !loading && !isSearching && (
+          {/* No Results Message */}
+          {((searchMode === 'google' && googleSearchResults.length === 0 && showGoogleResults) ||
+            (searchMode === 'local' && displayArticles.length === 0)) &&
+            !loading && !isSearching && searchQuery && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
-                {showGoogleResults
-                  ? "No search results found. Try a different search term."
-                  : "No articles found matching your criteria."}
+              <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <p className="text-gray-500 text-lg mb-2">
+                No {searchMode === 'google' ? 'web' : 'local'} results found for "{searchQuery}"
+              </p>
+              <p className="text-gray-400 text-sm">
+                {searchMode === 'google'
+                  ? 'Try different keywords or switch to local search'
+                  : 'Try different keywords or switch to web search'
+                }
               </p>
             </div>
           )}
