@@ -157,7 +157,8 @@ export default function Academy() {
           "CapCut Interface, Trimming, Audio Sync, Subtitles, Transitions, TikTok/Reels Optimization",
         duration: "6 weeks",
         mode: "Virtual",
-        price: "₦60,000",
+        originalPrice: "₦60,000",
+        price: "₦50,000",
         features: [
           "Mobile & Desktop CapCut",
           "Advanced Effects",
@@ -575,7 +576,7 @@ export default function Academy() {
             {/* Coming Soon */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center">
-                ���� Coming Soon
+                🧪 Coming Soon
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 {courses.comingSoon.map((course) => (
