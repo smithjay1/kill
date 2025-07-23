@@ -149,38 +149,22 @@ export default function GetStarted() {
       category.courses.some((course) => course.id === selectedCourse),
     );
 
-    // Create WhatsApp message
-    const message = `🎓 AETHER HUB Course Enrollment Request
+    // Store enrollment data in localStorage and redirect to payment page
+    const enrollmentData = {
+      studentInfo: formData,
+      courseInfo: {
+        id: selectedCourse,
+        category: selectedCategory?.title || "N/A",
+        level: selectedCourseDetails.level,
+        description: selectedCourseDetails.description,
+        originalPrice: selectedCourseDetails.originalPrice,
+        price: selectedCourseDetails.price,
+        duration: selectedCourseDetails.duration,
+      }
+    };
 
-👤 Student Information:
-• Name: ${formData.firstName} ${formData.lastName}
-• Email: ${formData.email}
-• Phone: ${formData.phone}
-
-📚 Course Details:
-• Category: ${selectedCategory?.title || "N/A"}
-• Course: ${selectedCourseDetails.level}
-• Description: ${selectedCourseDetails.description}
-• Price: ${selectedCourseDetails.price}
-• Duration: ${selectedCourseDetails.duration}
-
-📧 For further communication, please also reach out via email: aether.hub1@gmail.com
-
-I would like to enroll in this course. Please provide me with the next steps for enrollment.
-
-Thank you!`;
-
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // WhatsApp number
-    const whatsappNumber = "2347025340480";
-
-    // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-    // Open WhatsApp
-    window.open(whatsappURL, "_blank");
+    localStorage.setItem('enrollmentData', JSON.stringify(enrollmentData));
+    window.location.href = '/payment';
   };
 
   return (
