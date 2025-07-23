@@ -385,6 +385,10 @@ export default function Innovation() {
                   "Full Stack Web Dev",
                   "Social Media Strategy",
                   "UI/UX Design",
+                  "Python Programming",
+                  "React Development",
+                  "Digital Marketing",
+                  "Video Editing",
                 ].map((tag) => (
                   <Badge
                     key={tag}
