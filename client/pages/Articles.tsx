@@ -31,8 +31,24 @@ interface GoogleSearchResult {
   title: string;
   link: string;
   snippet: string;
+  displayLink: string;
+  formattedUrl: string;
   pagemap?: {
     cse_image?: Array<{ src: string }>;
+    cse_thumbnail?: Array<{ src: string; width: string; height: string }>;
+    metatags?: Array<{ [key: string]: string }>;
+  };
+}
+
+interface GoogleSearchResponse {
+  items?: GoogleSearchResult[];
+  searchInformation?: {
+    totalResults: string;
+    searchTime: number;
+  };
+  error?: {
+    message: string;
+    code: number;
   };
 }
 
