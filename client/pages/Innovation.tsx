@@ -35,6 +35,62 @@ export default function Innovation() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [showSocialMedia, setShowSocialMedia] = useState(false);
+
+  // Course mapping for direct navigation
+  const courseMapping: { [key: string]: string } = {
+    "data analysis": "/academy#data-analytics-course",
+    "data analytics": "/academy#data-analytics-course",
+    "beginner data analysis": "/academy#data-analytics-course",
+    "python": "/academy#python-programming-course",
+    "python programming": "/academy#python-programming-course",
+    "web development": "/academy#web-development-course",
+    "web dev": "/academy#web-development-course",
+    "full stack": "/academy#full-stack-course",
+    "full stack web dev": "/academy#full-stack-course",
+    "react": "/academy#react-development-course",
+    "react development": "/academy#react-development-course",
+    "digital marketing": "/academy#digital-marketing-course",
+    "social media": "/academy#social-media-course",
+    "social media strategy": "/academy#social-media-course",
+    "ui/ux": "/academy#ui-ux-design-course",
+    "ui/ux design": "/academy#ui-ux-design-course",
+    "video editing": "/academy#video-editing-course",
+    "design": "/academy#ui-ux-design-course"
+  };
+
+  const socialMediaLinks = [
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/aetherhu.b?igsh=Yml3bHRuOXhnNzlv",
+      icon: "📷",
+      color: "bg-pink-500 hover:bg-pink-600"
+    },
+    {
+      name: "TikTok",
+      url: "https://www.tiktok.com/@aetherhub?_t=ZM-8yGVyccKg3a&_r=1",
+      icon: "🎵",
+      color: "bg-black hover:bg-gray-800"
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/share/16ytqLvCdi/",
+      icon: "📘",
+      color: "bg-blue-600 hover:bg-blue-700"
+    },
+    {
+      name: "Threads",
+      url: "https://www.threads.net/@aetherhu.b",
+      icon: "🧵",
+      color: "bg-gray-800 hover:bg-gray-900"
+    },
+    {
+      name: "X (Twitter)",
+      url: "https://x.com/aetherhub_?t=wL5bW_skxV7EFQ3C6xTbag&s=09",
+      icon: "🐦",
+      color: "bg-gray-900 hover:bg-black"
+    }
+  ];
 
   const testimonials = [
     {
