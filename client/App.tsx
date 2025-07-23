@@ -16,6 +16,7 @@ import Articles from "./pages/Articles";
 import GoogleSearchDemo from "./pages/GoogleSearchDemo";
 import Legal from "./pages/Legal";
 import Payment from "./pages/Payment";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
