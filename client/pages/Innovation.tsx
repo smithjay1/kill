@@ -110,7 +110,7 @@ export default function Innovation() {
     {
       name: "Paris",
       image:
-        "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1431274172761-fca41d930114?w=400&h=300&fit=crop",
       description: "Innovation capital",
     },
   ];
