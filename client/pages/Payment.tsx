@@ -418,37 +418,57 @@ Thank you!`;
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Payment Proof Submission</h2>
                 <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Great! Now please submit your payment screenshot through either WhatsApp or Email. 
+                  Great! Now please submit your payment screenshot through either WhatsApp or Email.
                   Your enrollment details and course information will be automatically included.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                  <Card className="border-2 border-green-200 hover:border-green-300 transition-colors cursor-pointer" onClick={handleWhatsAppSubmission}>
+                  <Card
+                    className={`border-2 border-green-200 hover:border-green-300 transition-colors ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                    onClick={isSubmitting ? undefined : handleWhatsAppSubmission}
+                  >
                     <CardContent className="p-6 text-center">
                       <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <MessageCircle className="w-6 h-6 text-white" />
+                        {isSubmitting ? (
+                          <Loader2 className="w-6 h-6 text-white animate-spin" />
+                        ) : (
+                          <MessageCircle className="w-6 h-6 text-white" />
+                        )}
                       </div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">WhatsApp</h3>
                       <p className="text-gray-600 text-sm mb-4">
                         Send payment proof via WhatsApp with pre-filled course details
                       </p>
-                      <Button className="w-full bg-green-500 hover:bg-green-600 text-white">
-                        Submit via WhatsApp
+                      <Button
+                        className="w-full bg-green-500 hover:bg-green-600 text-white"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Processing...' : 'Submit via WhatsApp'}
                       </Button>
                     </CardContent>
                   </Card>
 
-                  <Card className="border-2 border-blue-200 hover:border-blue-300 transition-colors cursor-pointer" onClick={handleEmailSubmission}>
+                  <Card
+                    className={`border-2 border-blue-200 hover:border-blue-300 transition-colors ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                    onClick={isSubmitting ? undefined : handleEmailSubmission}
+                  >
                     <CardContent className="p-6 text-center">
                       <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Mail className="w-6 h-6 text-white" />
+                        {isSubmitting ? (
+                          <Loader2 className="w-6 h-6 text-white animate-spin" />
+                        ) : (
+                          <Mail className="w-6 h-6 text-white" />
+                        )}
                       </div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
                       <p className="text-gray-600 text-sm mb-4">
                         Send payment proof via email with pre-filled enrollment information
                       </p>
-                      <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
-                        Submit via Email
+                      <Button
+                        className="w-full bg-blue-500 hover:bg-blue-600 text-white"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Processing...' : 'Submit via Email'}
                       </Button>
                     </CardContent>
                   </Card>
@@ -456,13 +476,36 @@ Thank you!`;
 
                 <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                   <p className="text-blue-800 text-sm">
-                    <strong>Note:</strong> Your course details and student information will be automatically included in the message. 
+                    <strong>Note:</strong> Your course details and student information will be automatically included in the message.
                     Just attach your payment screenshot and send!
                   </p>
                 </div>
               </CardContent>
             </Card>
           </>
+        )}
+
+        {step === 'confirming' && (
+          <div className="text-center py-16">
+            <Card className="max-w-md mx-auto">
+              <CardContent className="p-8">
+                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center relative">
+                    <CheckCircle className="w-8 h-8 text-white animate-pulse" />
+                    <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-25"></div>
+                  </div>
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Enrollment Confirmed!</h2>
+                <p className="text-gray-600 mb-4">
+                  Your enrollment has been successfully submitted. You'll be redirected to continue with your proof submission.
+                </p>
+                <div className="flex items-center justify-center">
+                  <Loader2 className="w-5 h-5 text-brand-blue animate-spin mr-2" />
+                  <span className="text-brand-blue">Redirecting...</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         )}
       </div>
     </div>
