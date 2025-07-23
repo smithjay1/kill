@@ -28,7 +28,7 @@ export default function Academy() {
         level: "Beginner",
         levelColor: "bg-green-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F2359ed48cba2445c86732c1b7a1b7024?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2Ff4fbbb16028b4733bbea03df215f8208?format=webp&width=800",
         description:
           "Excel for Analytics, Power BI Basics, SQL Fundamentals, MySQL Basics, Data Presentation, Personal Branding",
         duration: "8 weeks",
