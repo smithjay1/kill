@@ -397,13 +397,13 @@ export default function Innovation() {
                     onClick={() => {
                       setSearchQuery(tag);
                       // Auto-set category based on tag
-                      if (tag.includes("Data Analysis")) {
+                      if (tag.includes("Data Analysis") || tag.includes("Python")) {
                         setSelectedCategory("data-analytics");
-                      } else if (tag.includes("Web Dev")) {
+                      } else if (tag.includes("Web Dev") || tag.includes("React")) {
                         setSelectedCategory("web-dev");
-                      } else if (tag.includes("Social Media")) {
+                      } else if (tag.includes("Social Media") || tag.includes("Digital Marketing")) {
                         setSelectedCategory("digital-marketing");
-                      } else if (tag.includes("UI/UX")) {
+                      } else if (tag.includes("UI/UX") || tag.includes("Video Editing")) {
                         setSelectedCategory("ui-ux");
                       }
                     }}
