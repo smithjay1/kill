@@ -382,13 +382,24 @@ export default function Innovation() {
                     : 'bg-brand-blue hover:bg-blue-600'
                 }`}
                 onClick={() => {
-                  if (searchQuery.trim() || selectedCategory) {
-                    // Redirect to academy page with search parameters
-                    const params = new URLSearchParams();
-                    if (searchQuery.trim())
+                  if (searchQuery.trim()) {
+                    const searchKey = searchQuery.toLowerCase().trim();
+                    const directCourse = courseMapping[searchKey];
+
+                    if (directCourse) {
+                      // Redirect to specific course
+                      window.location.href = directCourse;
+                    } else {
+                      // Fallback to general academy search
+                      const params = new URLSearchParams();
                       params.append("search", searchQuery);
-                    if (selectedCategory)
-                      params.append("category", selectedCategory);
+                      if (selectedCategory) params.append("category", selectedCategory);
+                      window.location.href = `/academy?${params.toString()}#courses`;
+                    }
+                  } else if (selectedCategory) {
+                    // Category only search
+                    const params = new URLSearchParams();
+                    params.append("category", selectedCategory);
                     window.location.href = `/academy?${params.toString()}#courses`;
                   } else {
                     window.location.href = "/academy#courses";
