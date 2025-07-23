@@ -662,7 +662,9 @@ export default function Articles() {
           {isSearching && (
             <div className="text-center py-12">
               <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-blue" />
-              <p className="text-gray-500 text-lg">Fetching real-time data...</p>
+              <p className="text-gray-500 text-lg">
+                {searchMode === 'google' ? 'Searching the web...' : 'Searching articles...'}
+              </p>
             </div>
           )}
         </div>
