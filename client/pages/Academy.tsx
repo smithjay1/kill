@@ -152,7 +152,7 @@ export default function Academy() {
         level: "Beginner-Advanced",
         levelColor: "bg-green-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F8018ce67187d45cd8b33f4af30d650a4?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F5aabd9e522c541a0af345580914b16ca?format=webp&width=800",
         description:
           "CapCut Interface, Trimming, Audio Sync, Subtitles, Transitions, TikTok/Reels Optimization",
         duration: "6 weeks",
