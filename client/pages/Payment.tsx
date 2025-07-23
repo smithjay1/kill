@@ -59,7 +59,7 @@ export default function Payment() {
 
   const saveEnrollmentData = async (data: EnrollmentData) => {
     try {
-      await fetch('/api/enrollments', {
+      await fetch('/.netlify/functions/enrollments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
