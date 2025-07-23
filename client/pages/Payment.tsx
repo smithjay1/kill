@@ -38,9 +38,9 @@ export default function Payment() {
   const [copiedAccount, setCopiedAccount] = useState(false);
 
   const accountDetails = {
-    bankName: "Access Bank",
-    accountName: "AETHER HUB DIGITAL SERVICES",
-    accountNumber: "1234567890",
+    bankName: "Parallex Bank",
+    accountName: "Okoh Ibhate Mc-Vester",
+    accountNumber: "2000015362",
     sortCode: "044150149"
   };
 

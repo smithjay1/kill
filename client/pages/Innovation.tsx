@@ -822,21 +822,21 @@ export default function Innovation() {
                   role: "Brand Strategist",
                   expertise: "Adobe After Effects, Power BI & My SQL",
                   image:
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+                    "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F9a2186739dc1499997f117387b212bcb?format=webp&width=800",
                 },
                 {
                   name: "Abdul Kader",
                   role: "Senior Full Stack Developer",
                   expertise: "React, Node.js, Blender Animations",
                   image:
-                    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
+                    "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2Ff048146412be432ebe7cd4424bb48430?format=webp&width=800",
                 },
                 {
                   name: "Duke Diamond",
                   role: "Video Editor",
                   expertise: "Filmmaker, Mobile Videographer, Cinematographer",
                   image:
-                    "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop",
+                    "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F68cafca719744e5da6deff45cbcf8c08?format=webp&width=800",
                 },
               ].map((expert, index) => (
                 <Card
