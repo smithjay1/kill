@@ -514,26 +514,58 @@ export default function Articles() {
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            {showGoogleResults
-              ? `Search Results for "${searchQuery}"`
+            {showGoogleResults && searchQuery
+              ? `${searchMode === 'google' ? 'Web' : 'Local'} Search Results for "${searchQuery}"`
               : "All Articles"}
           </h2>
 
-          {showGoogleResults && (
+          {/* Search Results Header */}
+          {showGoogleResults && searchMode === 'google' && (
             <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-center justify-between text-blue-800">
                 <div className="flex items-center">
                   <Search className="w-5 h-5 mr-2" />
-                  <span className="font-medium">Real-time Search Results</span>
+                  <span className="font-medium">Google Search Results</span>
+                  {searchStats && (
+                    <Badge variant="outline" className="ml-2 text-xs">
+                      {searchStats.total} results ({searchStats.time}s)
+                    </Badge>
+                  )}
                 </div>
                 <div className="flex items-center text-sm">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
-                  <span>Live Data</span>
+                  <span>Live Web Search</span>
                 </div>
               </div>
               <p className="text-blue-700 text-sm mt-1">
-                Dynamic content updated with real-time data and community insights.
+                Real-time results from across the web, powered by Google Custom Search.
               </p>
+            </div>
+          )}
+
+          {showGoogleResults && searchMode === 'local' && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="flex items-center text-green-800">
+                <Search className="w-5 h-5 mr-2" />
+                <span className="font-medium">Local Search Results</span>
+                <Badge variant="outline" className="ml-2 text-xs">
+                  {searchResults.length} articles found
+                </Badge>
+              </div>
+              <p className="text-green-700 text-sm mt-1">
+                Results from our curated tech articles collection.
+              </p>
+            </div>
+          )}
+
+          {/* Search Error */}
+          {searchError && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex items-center text-red-800">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                <span className="font-medium">Search Error</span>
+              </div>
+              <p className="text-red-700 text-sm mt-1">{searchError}</p>
             </div>
           )}
 
