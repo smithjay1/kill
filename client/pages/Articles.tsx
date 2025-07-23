@@ -304,13 +304,13 @@ export default function Articles() {
   // Debounced search effect
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (searchQuery.trim() && searchMode !== 'gcse') {
+      if (searchQuery.trim()) {
         if (searchMode === 'google') {
           searchGoogleCSE(searchQuery);
         } else {
           searchLocalContent(searchQuery);
         }
-      } else if (searchMode !== 'gcse') {
+      } else {
         setSearchResults([]);
         setGoogleSearchResults([]);
         setShowGoogleResults(false);
