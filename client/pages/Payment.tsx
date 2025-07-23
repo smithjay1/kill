@@ -218,7 +218,7 @@ Thank you!`;
               if (step === 'confirming') {
                 return; // Don't allow navigation during confirmation
               }
-              window.location.href = step === 'payment' ? '/get-started' : '/';
+              window.location.href = '/';
             }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
