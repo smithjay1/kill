@@ -344,6 +344,39 @@ export default function Innovation() {
               </Button>
             </div>
 
+            {/* Active Search Status */}
+            {(searchQuery.trim() || selectedCategory) && (
+              <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-blue-800">
+                    <Search className="w-4 h-4 mr-2" />
+                    <span className="font-medium">Active Search:</span>
+                    {searchQuery.trim() && (
+                      <Badge variant="secondary" className="ml-2">
+                        "{searchQuery}"
+                      </Badge>
+                    )}
+                    {selectedCategory && (
+                      <Badge variant="secondary" className="ml-2">
+                        {selectedCategory.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      </Badge>
+                    )}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setSearchQuery("");
+                      setSelectedCategory("");
+                    }}
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    Clear
+                  </Button>
+                </div>
+              </div>
+            )}
+
             <div className="text-center">
               <p className="text-gray-600 mb-4">Popular Tags:</p>
               <div className="flex flex-wrap justify-center gap-2">
