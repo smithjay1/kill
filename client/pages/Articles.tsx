@@ -600,8 +600,7 @@ export default function Articles() {
             </div>
           )}
 
-          {/* Hide articles grid when in Google CSE mode */}
-          {searchMode === 'gcse' ? null : loading ? (
+          {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[...Array(6)].map((_, index) => (
                 <Card key={index} className="overflow-hidden">
