@@ -393,24 +393,7 @@ export default function Articles() {
       {/* Search and Filter */}
       <section className="px-6 py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          {/* Google CSE Widget */}
-          {searchMode === 'gcse' && (
-            <div className="mb-8">
-              <div className="max-w-4xl mx-auto">
-                <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                  <div className="flex items-center mb-4">
-                    <Search className="w-5 h-5 text-brand-blue mr-2" />
-                    <h3 className="text-lg font-semibold text-gray-900">Google Custom Search</h3>
-                    <Badge className="ml-2 bg-green-500 text-white text-xs">Live Search</Badge>
-                  </div>
-                  <div className="gcse-search"></div>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Powered by Google Custom Search Engine. Results display on this page without redirecting.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+
 
 
 
