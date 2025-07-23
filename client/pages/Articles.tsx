@@ -548,9 +548,9 @@ export default function Articles() {
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            {showGoogleResults && searchQuery
+            {showGoogleResults && searchQuery && searchMode !== 'gcse'
               ? `${searchMode === 'google' ? 'Web' : 'Local'} Search Results for "${searchQuery}"`
-              : "All Articles"}
+              : searchMode === 'gcse' ? "Google Custom Search" : "All Articles"}
           </h2>
 
           {/* Search Results Header */}
