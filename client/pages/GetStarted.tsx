@@ -31,15 +31,17 @@ export default function GetStarted() {
           id: "web-essentials",
           level: "Beginner",
           description: "HTML, CSS, Page Structure, Responsive Layouts",
-          price: "₦50,000",
-          duration: "6 weeks",
+          originalPrice: "₦80,000",
+          price: "₦60,000",
+          duration: "8 weeks",
           featured: false,
         },
         {
           id: "frontend-js",
-          level: "Intermediate",
+          level: "Beginner to Intermediate",
           description: "JavaScript, DOM, Git & GitHub, APIs",
-          price: "₦60,000",
+          originalPrice: "₦100,000",
+          price: "₦80,000",
           duration: "10 weeks",
           featured: true,
         },
@@ -47,7 +49,8 @@ export default function GetStarted() {
           id: "fullstack",
           level: "Advanced",
           description: "ReactJS, Node.js, MongoDB/SQL, REST APIs",
-          price: "₦80,000",
+          originalPrice: "₦150,000",
+          price: "₦120,000",
           duration: "16 weeks",
           featured: false,
         },
@@ -62,15 +65,17 @@ export default function GetStarted() {
           id: "data-combo",
           level: "Beginner",
           description: "Excel, Power BI Basics, SQL & MySQL Fundamentals",
-          price: "₦50,000",
+          originalPrice: "₦80,000",
+          price: "₦60,000",
           duration: "8 weeks",
           featured: false,
         },
         {
           id: "data-mastery",
-          level: "Intermediate",
+          level: "Beginner to Intermediate",
           description: "Advanced Excel, Power BI Mastery, SQL & MySQL Advanced",
-          price: "₦60,000",
+          originalPrice: "₦100,000",
+          price: "₦80,000",
           duration: "12 weeks",
           featured: true,
         },
@@ -79,7 +84,8 @@ export default function GetStarted() {
           level: "Advanced",
           description:
             "Customer Segmentation, Market Research, MySQL Analytics",
-          price: "₦80,000",
+          originalPrice: "₦150,000",
+          price: "₦120,000",
           duration: "12 weeks",
           featured: false,
         },
@@ -95,7 +101,8 @@ export default function GetStarted() {
           level: "Beginner to Advanced",
           description:
             "CapCut Interface, Trimming, Audio Sync, Transitions, TikTok/Reels Optimization",
-          price: "₦60,000",
+          originalPrice: "₦60,000",
+          price: "₦50,000",
           duration: "6 weeks",
           featured: true,
         },
@@ -142,38 +149,22 @@ export default function GetStarted() {
       category.courses.some((course) => course.id === selectedCourse),
     );
 
-    // Create WhatsApp message
-    const message = `🎓 AETHER HUB Course Enrollment Request
+    // Store enrollment data in localStorage and redirect to payment page
+    const enrollmentData = {
+      studentInfo: formData,
+      courseInfo: {
+        id: selectedCourse,
+        category: selectedCategory?.title || "N/A",
+        level: selectedCourseDetails.level,
+        description: selectedCourseDetails.description,
+        originalPrice: selectedCourseDetails.originalPrice,
+        price: selectedCourseDetails.price,
+        duration: selectedCourseDetails.duration,
+      },
+    };
 
-👤 Student Information:
-• Name: ${formData.firstName} ${formData.lastName}
-• Email: ${formData.email}
-• Phone: ${formData.phone}
-
-📚 Course Details:
-• Category: ${selectedCategory?.title || "N/A"}
-• Course: ${selectedCourseDetails.level}
-• Description: ${selectedCourseDetails.description}
-• Price: ${selectedCourseDetails.price}
-• Duration: ${selectedCourseDetails.duration}
-
-📧 For further communication, please also reach out via email: aether.hub1@gmail.com
-
-I would like to enroll in this course. Please provide me with the next steps for enrollment.
-
-Thank you!`;
-
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // WhatsApp number
-    const whatsappNumber = "2347025340480";
-
-    // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-    // Open WhatsApp
-    window.open(whatsappURL, "_blank");
+    localStorage.setItem("enrollmentData", JSON.stringify(enrollmentData));
+    window.location.href = "/payment";
   };
 
   return (
@@ -256,8 +247,15 @@ Thank you!`;
                             <p className="text-gray-600 text-sm mb-4">
                               {course.description}
                             </p>
-                            <div className="text-brand-blue font-bold text-xl mb-2">
-                              {course.price}
+                            <div className="flex flex-col items-center mb-2">
+                              {course.originalPrice && (
+                                <span className="text-sm text-gray-500 line-through mb-1">
+                                  {course.originalPrice}
+                                </span>
+                              )}
+                              <div className="text-brand-blue font-bold text-xl">
+                                {course.price}
+                              </div>
                             </div>
                             <div className="text-gray-600 text-sm">
                               {course.duration}

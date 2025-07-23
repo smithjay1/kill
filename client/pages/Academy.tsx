@@ -28,12 +28,13 @@ export default function Academy() {
         level: "Beginner",
         levelColor: "bg-green-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F19bd3359cf6f4906a345f3f2c964b093?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2Ff4fbbb16028b4733bbea03df215f8208?format=webp&width=800",
         description:
           "Excel for Analytics, Power BI Basics, SQL Fundamentals, MySQL Basics, Data Presentation, Personal Branding",
         duration: "8 weeks",
         mode: "Virtual",
-        price: "₦50,000",
+        originalPrice: "₦80,000",
+        price: "₦60,000",
         features: [
           "Excel Analytics",
           "Power BI Basics",
@@ -43,40 +44,42 @@ export default function Academy() {
       },
       {
         id: "data-mastery",
-        title: "Data Analytics Mastery",
-        level: "Intermediate",
+        title: "Digital Marketing",
+        level: "Beginner to Intermediate",
         levelColor: "bg-blue-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F8018ce67187d45cd8b33f4af30d650a4?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F2359ed48cba2445c86732c1b7a1b7024?format=webp&width=800",
         description:
-          "Advanced Excel, Power BI Mastery, SQL Advanced, MySQL Database Management, MCDA Exam Prep",
-        duration: "12 weeks",
+          "Social Media Marketing, Content Creation, SEO Basics, Google Ads, Email Marketing, Brand Strategy, Digital Analytics",
+        duration: "10 weeks",
         mode: "Virtual",
-        price: "₦60,000",
+        originalPrice: "₦100,000",
+        price: "₦80,000",
         features: [
-          "Advanced Excel",
-          "Power BI Mastery",
-          "SQL & MySQL Advanced",
-          "MCDA Prep",
+          "Social Media Strategy",
+          "Content Marketing",
+          "SEO & Google Ads",
+          "Email Campaigns",
         ],
       },
       {
         id: "sales-analysis",
-        title: "Sales & Data Analysis",
+        title: "Data Analysis/Advance",
         level: "Advanced",
         levelColor: "bg-red-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F8018ce67187d45cd8b33f4af30d650a4?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F52b00b8c56b74003bb3a49ec893364f9?format=webp&width=800",
         description:
-          "Customer Segmentation, Advanced Dashboard Reporting, Market Research, Competitive Analysis, MySQL Analytics",
+          "Advanced Excel, Power BI Mastery, SQL Advanced, MySQL Database Management, MCDA Exam Prep 12 weeks Virtual Advanced Excel Power BI Mastery SQL & MySQL Advanced",
         duration: "12 weeks",
         mode: "Virtual",
-        price: "₦80,000",
+        originalPrice: "₦150,000",
+        price: "₦120,000",
         features: [
-          "Customer Segmentation",
-          "Advanced Dashboards",
-          "Market Research",
-          "MySQL Analytics",
+          "Advanced Excel Mastery",
+          "Power BI Professional",
+          "SQL & MySQL Advanced",
+          "MCDA Exam Preparation",
         ],
       },
     ],
@@ -90,9 +93,10 @@ export default function Academy() {
           "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F78e6d7a6d371466e9d5dfff0cb45a68b?format=webp&width=800",
         description:
           "HTML, CSS, Page Structure, Responsive Layouts, Hosting & Deployment Basics",
-        duration: "6 weeks",
+        duration: "8 weeks",
         mode: "Virtual",
-        price: "₦50,000",
+        originalPrice: "₦80,000",
+        price: "₦60,000",
         features: [
           "HTML & CSS",
           "Responsive Design",
@@ -103,7 +107,7 @@ export default function Academy() {
       {
         id: "frontend-js",
         title: "Frontend Development (JavaScript)",
-        level: "Beginner-Intermediate",
+        level: "Beginner to Intermediate",
         levelColor: "bg-yellow-500",
         image:
           "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop",
@@ -111,7 +115,8 @@ export default function Academy() {
           "JS (ES6+), DOM, Git & GitHub, Flexbox, Grid Layouts, APIs (Basic Fetch)",
         duration: "10 weeks",
         mode: "Virtual",
-        price: "₦60,000",
+        originalPrice: "₦100,000",
+        price: "₦80,000",
         features: [
           "Modern JavaScript",
           "Git & GitHub",
@@ -130,7 +135,8 @@ export default function Academy() {
           "ReactJS, Node.js & Express, MongoDB/SQL, REST APIs & Authentication, Deployment",
         duration: "16 weeks",
         mode: "Virtual",
-        price: "₦80,000",
+        originalPrice: "₦150,000",
+        price: "₦120,000",
         features: [
           "React Development",
           "Backend with Node.js",
@@ -146,12 +152,13 @@ export default function Academy() {
         level: "Beginner-Advanced",
         levelColor: "bg-green-500",
         image:
-          "https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F8018ce67187d45cd8b33f4af30d650a4?format=webp&width=800",
+          "https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F5aabd9e522c541a0af345580914b16ca?format=webp&width=800",
         description:
           "CapCut Interface, Trimming, Audio Sync, Subtitles, Transitions, TikTok/Reels Optimization",
         duration: "6 weeks",
         mode: "Virtual",
-        price: "₦60,000",
+        originalPrice: "₦60,000",
+        price: "₦50,000",
         features: [
           "Mobile & Desktop CapCut",
           "Advanced Effects",
@@ -161,6 +168,13 @@ export default function Academy() {
       },
     ],
     comingSoon: [
+      {
+        id: "sales-data-analysis",
+        title: "Sales Data Analysis",
+        level: "Coming Soon",
+        levelColor: "bg-orange-500",
+        isComingSoon: true,
+      },
       {
         id: "after-effects",
         title: "Motion Animation (Adobe After Effects)",
@@ -241,8 +255,15 @@ export default function Academy() {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="text-2xl font-bold text-brand-blue">
-                {course.price}
+              <div className="flex flex-col">
+                {course.originalPrice && (
+                  <span className="text-sm text-gray-500 line-through">
+                    {course.originalPrice}
+                  </span>
+                )}
+                <div className="text-2xl font-bold text-brand-blue">
+                  {course.price}
+                </div>
               </div>
               <Button
                 className="bg-brand-blue hover:bg-blue-600 text-white"
