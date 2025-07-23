@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  ChevronRight, 
-  HelpCircle, 
-  FileText, 
-  Shield, 
-  Mail, 
+import {
+  ChevronRight,
+  HelpCircle,
+  FileText,
+  Shield,
+  Mail,
   Phone,
   MessageCircle,
   Menu,
@@ -15,13 +15,6 @@ import {
 
 export default function Legal() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("help");
-
-  const sections = [
-    { id: "help", title: "Help Center", icon: HelpCircle },
-    { id: "terms", title: "Terms of Service", icon: FileText },
-    { id: "privacy", title: "Privacy Policy", icon: Shield }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
