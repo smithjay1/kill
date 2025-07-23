@@ -393,6 +393,32 @@ export default function Articles() {
       {/* Search and Filter */}
       <section className="px-6 py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
+          {/* Search Mode Toggle */}
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-gray-100 p-1 rounded-lg inline-flex">
+              <button
+                onClick={() => setSearchMode('local')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  searchMode === 'local'
+                    ? 'bg-white text-brand-blue shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Local Articles
+              </button>
+              <button
+                onClick={() => setSearchMode('google')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  searchMode === 'google'
+                    ? 'bg-white text-brand-blue shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Web Search (Google)
+              </button>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="flex-1 relative">
               {isSearching ? (
