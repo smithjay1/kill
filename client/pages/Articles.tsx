@@ -305,15 +305,21 @@ export default function Articles() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchQuery.trim()) {
-        searchContent(searchQuery);
+        if (searchMode === 'google') {
+          searchGoogleCSE(searchQuery);
+        } else {
+          searchLocalContent(searchQuery);
+        }
       } else {
         setSearchResults([]);
+        setGoogleSearchResults([]);
         setShowGoogleResults(false);
+        setSearchError('');
       }
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchQuery, searchContent]);
+  }, [searchQuery, searchMode, searchGoogleCSE, searchLocalContent]);
 
   const filteredArticles = articles.filter((article) => {
     const matchesSearch =
