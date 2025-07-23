@@ -12,6 +12,7 @@ import {
   Clock,
   User,
   BookOpen,
+  Loader2,
 } from "lucide-react";
 
 interface EnrollmentData {
@@ -34,25 +35,45 @@ interface EnrollmentData {
 
 export default function Payment() {
   const [enrollmentData, setEnrollmentData] = useState<EnrollmentData | null>(null);
-  const [step, setStep] = useState<'payment' | 'proof'>('payment');
+  const [step, setStep] = useState<'payment' | 'proof' | 'confirming'>('payment');
   const [copiedAccount, setCopiedAccount] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const accountDetails = {
     bankName: "Parallex Bank",
     accountName: "Okoh Ibhate Mc-Vester",
-    accountNumber: "2000015362",
-    sortCode: "044150149"
+    accountNumber: "2000015362"
   };
 
   useEffect(() => {
     const storedData = localStorage.getItem('enrollmentData');
     if (storedData) {
       setEnrollmentData(JSON.parse(storedData));
+      // Save enrollment data to database
+      saveEnrollmentData(JSON.parse(storedData));
     } else {
       // Redirect back if no enrollment data found
       window.location.href = '/get-started';
     }
   }, []);
+
+  const saveEnrollmentData = async (data: EnrollmentData) => {
+    try {
+      await fetch('/api/enrollments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          timestamp: new Date().toISOString(),
+          status: 'pending_payment'
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to save enrollment data:', error);
+    }
+  };
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -95,19 +116,83 @@ I have made the payment for the course enrollment. Please find the payment scree
 Thank you!`;
   };
 
-  const handleWhatsAppSubmission = () => {
-    const message = generateMessage();
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = "2347025340480";
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
+  const handleWhatsAppSubmission = async () => {
+    setIsSubmitting(true);
+    setStep('confirming');
+
+    // Show confirmation animation for 2 seconds
+    setTimeout(async () => {
+      try {
+        // Update status in database
+        await fetch('/api/enrollments', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: enrollmentData?.studentInfo.email,
+            status: 'proof_submitted_whatsapp'
+          }),
+        });
+
+        const message = generateMessage();
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = "2347025340480";
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Clear enrollment data and redirect to home
+        localStorage.removeItem('enrollmentData');
+        window.open(whatsappURL, "_blank");
+
+        // Redirect to home page after a short delay
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      } catch (error) {
+        console.error('Failed to update enrollment status:', error);
+        setIsSubmitting(false);
+        setStep('proof');
+      }
+    }, 2000);
   };
 
-  const handleEmailSubmission = () => {
-    const message = generateMessage();
-    const subject = `Course Enrollment Payment - ${enrollmentData?.courseInfo.level} (${enrollmentData?.courseInfo.category})`;
-    const emailURL = `mailto:aether.hub1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    window.open(emailURL, "_blank");
+  const handleEmailSubmission = async () => {
+    setIsSubmitting(true);
+    setStep('confirming');
+
+    // Show confirmation animation for 2 seconds
+    setTimeout(async () => {
+      try {
+        // Update status in database
+        await fetch('/api/enrollments', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: enrollmentData?.studentInfo.email,
+            status: 'proof_submitted_email'
+          }),
+        });
+
+        const message = generateMessage();
+        const subject = `Course Enrollment Payment - ${enrollmentData?.courseInfo.level} (${enrollmentData?.courseInfo.category})`;
+        const emailURL = `mailto:aether.hub1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+        // Clear enrollment data and redirect to home
+        localStorage.removeItem('enrollmentData');
+        window.open(emailURL, "_blank");
+
+        // Redirect to home page after a short delay
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      } catch (error) {
+        console.error('Failed to update enrollment status:', error);
+        setIsSubmitting(false);
+        setStep('proof');
+      }
+    }, 2000);
   };
 
   if (!enrollmentData) {
@@ -129,10 +214,15 @@ Thank you!`;
           <Button
             variant="ghost"
             className="text-brand-blue hover:text-blue-600"
-            onClick={() => window.location.href = '/get-started'}
+            onClick={() => {
+              if (step === 'confirming') {
+                return; // Don't allow navigation during confirmation
+              }
+              window.location.href = step === 'payment' ? '/get-started' : '/';
+            }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Course Selection
+            {step === 'payment' ? 'Back to Course Selection' : 'Back to AETHER HUB'}
           </Button>
           <div className="flex items-center space-x-2">
             <img
@@ -266,12 +356,7 @@ Thank you!`;
                         <span className="ml-1">{copiedAccount ? 'Copied!' : 'Copy'}</span>
                       </Button>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                      <div>
-                        <span className="text-sm text-gray-600">Sort Code</span>
-                        <p className="font-semibold text-gray-900">{accountDetails.sortCode}</p>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
 
