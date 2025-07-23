@@ -462,16 +462,25 @@ export default function Innovation() {
                     variant="outline"
                     className="cursor-pointer hover:bg-brand-blue hover:text-white transition-colors duration-200"
                     onClick={() => {
-                      setSearchQuery(tag);
-                      // Auto-set category based on tag
-                      if (tag.includes("Data Analysis") || tag.includes("Python")) {
-                        setSelectedCategory("data-analytics");
-                      } else if (tag.includes("Web Dev") || tag.includes("React")) {
-                        setSelectedCategory("web-dev");
-                      } else if (tag.includes("Social Media") || tag.includes("Digital Marketing")) {
-                        setSelectedCategory("digital-marketing");
-                      } else if (tag.includes("UI/UX") || tag.includes("Video Editing")) {
-                        setSelectedCategory("ui-ux");
+                      const tagKey = tag.toLowerCase();
+                      const directCourse = courseMapping[tagKey];
+
+                      if (directCourse) {
+                        // Direct navigation to specific course
+                        window.location.href = directCourse;
+                      } else {
+                        // Fallback to search functionality
+                        setSearchQuery(tag);
+                        // Auto-set category based on tag
+                        if (tag.includes("Data Analysis") || tag.includes("Python")) {
+                          setSelectedCategory("data-analytics");
+                        } else if (tag.includes("Web Dev") || tag.includes("React")) {
+                          setSelectedCategory("web-dev");
+                        } else if (tag.includes("Social Media") || tag.includes("Digital Marketing")) {
+                          setSelectedCategory("digital-marketing");
+                        } else if (tag.includes("UI/UX") || tag.includes("Video Editing")) {
+                          setSelectedCategory("ui-ux");
+                        }
                       }
                     }}
                   >
