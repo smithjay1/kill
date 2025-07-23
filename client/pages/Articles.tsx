@@ -63,7 +63,7 @@ export default function Articles() {
   const [showGoogleResults, setShowGoogleResults] = useState(false);
   const [searchError, setSearchError] = useState<string>("");
   const [searchStats, setSearchStats] = useState<{ total: string; time: number } | null>(null);
-  const [searchMode, setSearchMode] = useState<'local' | 'google'>('local');
+  const [searchMode, setSearchMode] = useState<'local' | 'google' | 'gcse'>('local');
 
   // Simulated tech articles - In production, this would fetch from a real API
   const fetchArticles = async () => {
