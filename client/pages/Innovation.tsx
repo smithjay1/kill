@@ -914,39 +914,44 @@ export default function Innovation() {
               </Button>
             </div>
 
-            {/* Social Media Selection Modal */}
+            {/* Social Media Selection */}
             {showSocialMedia && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowSocialMedia(false)}>
-                <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-                    Choose Your Platform
-                  </h3>
-                  <p className="text-gray-600 mb-6 text-center">
-                    Select which social media platform you'd like to follow us on:
-                  </p>
-                  <div className="grid grid-cols-1 gap-3">
-                    {socialMediaLinks.map((social) => (
-                      <Button
-                        key={social.name}
-                        className={`${social.color} text-white transition-all duration-200 hover:scale-105`}
-                        onClick={() => {
-                          window.open(social.url, '_blank');
-                          setShowSocialMedia(false);
-                        }}
-                      >
-                        <span className="mr-3 text-lg">{social.icon}</span>
-                        Follow us on {social.name}
-                      </Button>
-                    ))}
-                  </div>
-                  <Button
-                    variant="outline"
-                    className="w-full mt-4"
-                    onClick={() => setShowSocialMedia(false)}
-                  >
-                    Cancel
-                  </Button>
+              <div className="mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-lg relative">
+                <button
+                  onClick={() => setShowSocialMedia(false)}
+                  className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                  Choose Your Platform
+                </h3>
+                <p className="text-gray-600 mb-4 text-center text-sm">
+                  Select which social media platform you'd like to follow us on:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {socialMediaLinks.map((social) => (
+                    <Button
+                      key={social.name}
+                      className={`${social.color} text-white transition-all duration-200 hover:scale-105 text-sm py-2`}
+                      onClick={() => {
+                        window.open(social.url, '_blank');
+                        setShowSocialMedia(false);
+                      }}
+                    >
+                      <span className="mr-2">{social.icon}</span>
+                      {social.name}
+                    </Button>
+                  ))}
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full mt-3"
+                  onClick={() => setShowSocialMedia(false)}
+                >
+                  Cancel
+                </Button>
               </div>
             )}
           </div>
