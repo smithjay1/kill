@@ -169,6 +169,13 @@ export default function Academy() {
     ],
     comingSoon: [
       {
+        id: "sales-data-analysis",
+        title: "Sales Data Analysis",
+        level: "Coming Soon",
+        levelColor: "bg-orange-500",
+        isComingSoon: true,
+      },
+      {
         id: "after-effects",
         title: "Motion Animation (Adobe After Effects)",
         level: "Coming Soon",
