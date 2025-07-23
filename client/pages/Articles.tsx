@@ -58,8 +58,12 @@ export default function Articles() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<Article[]>([]);
+  const [googleSearchResults, setGoogleSearchResults] = useState<GoogleSearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showGoogleResults, setShowGoogleResults] = useState(false);
+  const [searchError, setSearchError] = useState<string>("");
+  const [searchStats, setSearchStats] = useState<{ total: string; time: number } | null>(null);
+  const [searchMode, setSearchMode] = useState<'local' | 'google'>('local');
 
   // Simulated tech articles - In production, this would fetch from a real API
   const fetchArticles = async () => {
