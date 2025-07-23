@@ -322,7 +322,7 @@ export default function Articles() {
   }, [searchQuery, searchMode, searchGoogleCSE, searchLocalContent]);
 
   const filteredArticles = articles.filter((article) => {
-    const matchesSearch =
+    const matchesSearch = !searchQuery.trim() ||
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory =
@@ -330,7 +330,7 @@ export default function Articles() {
     return matchesSearch && matchesCategory;
   });
 
-  const displayArticles = showGoogleResults ? searchResults : filteredArticles;
+  const displayArticles = showGoogleResults && searchMode === 'local' ? searchResults : filteredArticles;
   const categories = [...new Set(articles.map((article) => article.category))];
   const trendingArticles = articles.filter((article) => article.trending);
 
