@@ -863,8 +863,9 @@ export default function Innovation() {
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <Input
                 id="newsletter-email"
-                placeholder="Enter your email"
+                placeholder="melissasly786@gmail.com"
                 className="flex-1 bg-white text-gray-900"
+                defaultValue="melissasly786@gmail.com"
               />
               <Button
                 className="bg-white text-brand-blue hover:bg-gray-100"
@@ -875,9 +876,7 @@ export default function Innovation() {
                     ) as HTMLInputElement
                   )?.value;
                   if (email) {
-                    const subject = "Newsletter Subscription from AETHER HUB";
-                    const body = `Hi AETHER HUB Team,\n\nI would like to subscribe to your newsletter with the email: ${email}\n\nThank you!`;
-                    window.location.href = `mailto:aether.hub1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    setShowSocialMedia(true);
                   } else {
                     alert("Please enter your email address");
                   }
@@ -886,6 +885,42 @@ export default function Innovation() {
                 Subscribe
               </Button>
             </div>
+
+            {/* Social Media Selection Modal */}
+            {showSocialMedia && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowSocialMedia(false)}>
+                <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                    Choose Your Platform
+                  </h3>
+                  <p className="text-gray-600 mb-6 text-center">
+                    Select which social media platform you'd like to follow us on:
+                  </p>
+                  <div className="grid grid-cols-1 gap-3">
+                    {socialMediaLinks.map((social) => (
+                      <Button
+                        key={social.name}
+                        className={`${social.color} text-white transition-all duration-200 hover:scale-105`}
+                        onClick={() => {
+                          window.open(social.url, '_blank');
+                          setShowSocialMedia(false);
+                        }}
+                      >
+                        <span className="mr-3 text-lg">{social.icon}</span>
+                        Follow us on {social.name}
+                      </Button>
+                    ))}
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full mt-4"
+                    onClick={() => setShowSocialMedia(false)}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
