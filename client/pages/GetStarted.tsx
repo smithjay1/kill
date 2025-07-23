@@ -160,11 +160,11 @@ export default function GetStarted() {
         originalPrice: selectedCourseDetails.originalPrice,
         price: selectedCourseDetails.price,
         duration: selectedCourseDetails.duration,
-      }
+      },
     };
 
-    localStorage.setItem('enrollmentData', JSON.stringify(enrollmentData));
-    window.location.href = '/payment';
+    localStorage.setItem("enrollmentData", JSON.stringify(enrollmentData));
+    window.location.href = "/payment";
   };
 
   return (

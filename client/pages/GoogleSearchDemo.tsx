@@ -10,7 +10,7 @@ export default function GoogleSearchDemo() {
     if (window.google && window.google.search) {
       window.google.search.cse.element.render({
         div: "gcse-search-container",
-        tag: "search"
+        tag: "search",
       });
     }
   }, []);
@@ -35,7 +35,10 @@ export default function GoogleSearchDemo() {
             <a href="/academy" className="text-gray-700 hover:text-brand-blue">
               Academy
             </a>
-            <a href="/innovation" className="text-gray-700 hover:text-brand-blue">
+            <a
+              href="/innovation"
+              className="text-gray-700 hover:text-brand-blue"
+            >
               Innovation
             </a>
             <a href="/articles" className="text-gray-700 hover:text-brand-blue">
@@ -59,7 +62,8 @@ export default function GoogleSearchDemo() {
             Google Custom Search Engine
           </h1>
           <p className="text-xl opacity-90 mb-8">
-            Real Google search powered by Custom Search Engine (CSE). Results display on this page without redirecting.
+            Real Google search powered by Custom Search Engine (CSE). Results
+            display on this page without redirecting.
           </p>
           <div className="flex items-center justify-center space-x-4">
             <Badge className="bg-white/20 text-white">Live Search</Badge>
@@ -76,24 +80,38 @@ export default function GoogleSearchDemo() {
             <CardContent className="p-0">
               <div className="flex items-center mb-6">
                 <Search className="w-6 h-6 text-brand-blue mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Live Google Search</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Live Google Search
+                </h2>
                 <Badge className="ml-3 bg-green-500 text-white">
                   <ExternalLink className="w-3 h-3 mr-1" />
                   Real Results
                 </Badge>
               </div>
-              
+
               {/* Google CSE Widget Container */}
               <div className="bg-gray-50 p-6 rounded-lg border">
                 <div className="gcse-search"></div>
               </div>
-              
+
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <h3 className="font-semibold text-blue-900 mb-2">How it works:</h3>
+                <h3 className="font-semibold text-blue-900 mb-2">
+                  How it works:
+                </h3>
                 <ul className="text-blue-800 text-sm space-y-1">
                   <li>• Powered by Google Custom Search Engine (CSE)</li>
-                  <li>• Search Engine ID: <code className="bg-blue-100 px-1 rounded">f75126b1cb6c7435b</code></li>
-                  <li>• API Key: <code className="bg-blue-100 px-1 rounded">AIzaSyCfUdF21U4XnUpp2yVg1gt_MH5DWrPP2Cw</code></li>
+                  <li>
+                    • Search Engine ID:{" "}
+                    <code className="bg-blue-100 px-1 rounded">
+                      f75126b1cb6c7435b
+                    </code>
+                  </li>
+                  <li>
+                    • API Key:{" "}
+                    <code className="bg-blue-100 px-1 rounded">
+                      AIzaSyCfUdF21U4XnUpp2yVg1gt_MH5DWrPP2Cw
+                    </code>
+                  </li>
                   <li>• Results display on this page without redirecting</li>
                   <li>• Automatically loads tech-focused content</li>
                 </ul>
@@ -109,16 +127,19 @@ export default function GoogleSearchDemo() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Implementation Details
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-6">
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">
+                    1
+                  </span>
                   HTML Script Tag
                 </h3>
                 <div className="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono">
-                  &lt;script async src="https://cse.google.com/cse.js?cx=f75126b1cb6c7435b"&gt;&lt;/script&gt;
+                  &lt;script async
+                  src="https://cse.google.com/cse.js?cx=f75126b1cb6c7435b"&gt;&lt;/script&gt;
                 </div>
                 <p className="text-gray-600 mt-3 text-sm">
                   Added to the HTML head section to load the Google CSE library.
@@ -129,14 +150,17 @@ export default function GoogleSearchDemo() {
             <Card className="p-6">
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">
+                    2
+                  </span>
                   Search Widget
                 </h3>
                 <div className="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono">
                   &lt;div class="gcse-search"&gt;&lt;/div&gt;
                 </div>
                 <p className="text-gray-600 mt-3 text-sm">
-                  Simple div element that Google automatically converts to a search widget.
+                  Simple div element that Google automatically converts to a
+                  search widget.
                 </p>
               </CardContent>
             </Card>
@@ -144,12 +168,15 @@ export default function GoogleSearchDemo() {
             <Card className="p-6">
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">3</span>
+                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">
+                    3
+                  </span>
                   No JavaScript Required
                 </h3>
                 <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
                   <p className="text-green-800 text-sm">
-                    Google handles all the search functionality automatically. No custom JavaScript code needed.
+                    Google handles all the search functionality automatically.
+                    No custom JavaScript code needed.
                   </p>
                 </div>
               </CardContent>
@@ -158,12 +185,15 @@ export default function GoogleSearchDemo() {
             <Card className="p-6">
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">4</span>
+                  <span className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center mr-3 text-sm">
+                    4
+                  </span>
                   Results on Same Page
                 </h3>
                 <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
                   <p className="text-blue-800 text-sm">
-                    Search results appear below the search box without any page redirects.
+                    Search results appear below the search box without any page
+                    redirects.
                   </p>
                 </div>
               </CardContent>
@@ -193,18 +223,42 @@ export default function GoogleSearchDemo() {
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">About</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="/contact" className="hover:text-white">Contact Us</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="hover:text-white">
+                    Contact Us
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Terms</a></li>
-                <li><a href="#" className="hover:text-white">Privacy</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Privacy
+                  </a>
+                </li>
               </ul>
             </div>
 

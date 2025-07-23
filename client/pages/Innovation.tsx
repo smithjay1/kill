@@ -42,13 +42,13 @@ export default function Innovation() {
     "data analysis": "/academy#data-analytics-course",
     "data analytics": "/academy#data-analytics-course",
     "beginner data analysis": "/academy#data-analytics-course",
-    "python": "/academy#python-programming-course",
+    python: "/academy#python-programming-course",
     "python programming": "/academy#python-programming-course",
     "web development": "/academy#web-development-course",
     "web dev": "/academy#web-development-course",
     "full stack": "/academy#full-stack-course",
     "full stack web dev": "/academy#full-stack-course",
-    "react": "/academy#react-development-course",
+    react: "/academy#react-development-course",
     "react development": "/academy#react-development-course",
     "digital marketing": "/academy#digital-marketing-course",
     "social media": "/academy#social-media-course",
@@ -56,7 +56,7 @@ export default function Innovation() {
     "ui/ux": "/academy#ui-ux-design-course",
     "ui/ux design": "/academy#ui-ux-design-course",
     "video editing": "/academy#video-editing-course",
-    "design": "/academy#ui-ux-design-course"
+    design: "/academy#ui-ux-design-course",
   };
 
   const socialMediaLinks = [
@@ -65,51 +65,52 @@ export default function Innovation() {
       url: "https://www.instagram.com/aetherhu.b?igsh=Yml3bHRuOXhnNzlv",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
         </svg>
       ),
-      color: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+      color:
+        "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
     },
     {
       name: "TikTok",
       url: "https://www.tiktok.com/@aetherhub?_t=ZM-8yGVyccKg3a&_r=1",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.138-.843c-.869-.8-1.373-1.65-1.492-2.748C16.076 1.321 15.734 1 15.346 1h-3.188c-.388 0-.73.321-.904.713-.174.392-.174.849 0 1.241.174.392.516.713.904.713h1.242c.388 0 .73-.321.904-.713.087-.196.087-.425 0-.621-.087-.196-.26-.367-.456-.465-.087-.044-.174-.088-.261-.131.087.044.174.087.261.131.196.098.369.269.456.465.087.196.087.425 0 .621-.174.392-.516.713-.904.713h-1.242c-.388 0-.73-.321-.904-.713-.174-.392-.174-.849 0-1.241.174-.392.516-.713.904-.713h3.188c.388 0 .73.321.776.713.119 1.098.623 1.948 1.492 2.748.391.361.826.656 1.138.843.156.094.304.177.443.258z"/>
+          <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.138-.843c-.869-.8-1.373-1.65-1.492-2.748C16.076 1.321 15.734 1 15.346 1h-3.188c-.388 0-.73.321-.904.713-.174.392-.174.849 0 1.241.174.392.516.713.904.713h1.242c.388 0 .73-.321.904-.713.087-.196.087-.425 0-.621-.087-.196-.26-.367-.456-.465-.087-.044-.174-.088-.261-.131.087.044.174.087.261.131.196.098.369.269.456.465.087.196.087.425 0 .621-.174.392-.516.713-.904.713h-1.242c-.388 0-.73-.321-.904-.713-.174-.392-.174-.849 0-1.241.174-.392.516-.713.904-.713h3.188c.388 0 .73.321.776.713.119 1.098.623 1.948 1.492 2.748.391.361.826.656 1.138.843.156.094.304.177.443.258z" />
         </svg>
       ),
-      color: "bg-black hover:bg-gray-800"
+      color: "bg-black hover:bg-gray-800",
     },
     {
       name: "Facebook",
       url: "https://www.facebook.com/share/16ytqLvCdi/",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg>
       ),
-      color: "bg-blue-600 hover:bg-blue-700"
+      color: "bg-blue-600 hover:bg-blue-700",
     },
     {
       name: "Threads",
       url: "https://www.threads.net/@aetherhu.b",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.742-1.756-.4-.46-.962-.693-1.67-.693-.744.057-1.39.353-1.916.882-.526.529-.96 1.299-1.292 2.282l-1.943-.493c.48-1.454 1.119-2.631 1.914-3.527 1.038-1.174 2.326-1.746 3.94-1.746 1.043 0 1.922.278 2.616.825.758.6 1.314 1.47 1.651 2.58.337 1.11.337 2.474.337 4.043v.343c0 .573.016 1.04.048 1.401.032.36.08.63.144.808.128.356.384.534.768.534.212 0 .407-.035.584-.106.177-.07.337-.175.48-.313.143-.138.27-.305.38-.5.233-.413.233-.853.233-1.32v-.686l.035-.52c.083-1.19.42-2.218 1.009-3.084.589-.866 1.455-1.614 2.598-2.244l.765 1.741c-.835.459-1.478 1.027-1.928 1.705-.33.497-.517 1.048-.561 1.653 1.063.388 1.928 1.018 2.598 1.889.67.871 1.006 1.94 1.009 3.207.002 1.267-.334 2.4-1.009 3.4-.675 1-1.676 1.832-3.004 2.497-1.328.665-2.956.998-4.884 1H12.181Z"/>
+          <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.742-1.756-.4-.46-.962-.693-1.67-.693-.744.057-1.39.353-1.916.882-.526.529-.96 1.299-1.292 2.282l-1.943-.493c.48-1.454 1.119-2.631 1.914-3.527 1.038-1.174 2.326-1.746 3.94-1.746 1.043 0 1.922.278 2.616.825.758.6 1.314 1.47 1.651 2.58.337 1.11.337 2.474.337 4.043v.343c0 .573.016 1.04.048 1.401.032.36.08.63.144.808.128.356.384.534.768.534.212 0 .407-.035.584-.106.177-.07.337-.175.48-.313.143-.138.27-.305.38-.5.233-.413.233-.853.233-1.32v-.686l.035-.52c.083-1.19.42-2.218 1.009-3.084.589-.866 1.455-1.614 2.598-2.244l.765 1.741c-.835.459-1.478 1.027-1.928 1.705-.33.497-.517 1.048-.561 1.653 1.063.388 1.928 1.018 2.598 1.889.67.871 1.006 1.94 1.009 3.207.002 1.267-.334 2.4-1.009 3.4-.675 1-1.676 1.832-3.004 2.497-1.328.665-2.956.998-4.884 1H12.181Z" />
         </svg>
       ),
-      color: "bg-gray-800 hover:bg-gray-900"
+      color: "bg-gray-800 hover:bg-gray-900",
     },
     {
       name: "X (Twitter)",
       url: "https://x.com/aetherhub_?t=wL5bW_skxV7EFQ3C6xTbag&s=09",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
-      color: "bg-gray-900 hover:bg-black"
-    }
+      color: "bg-gray-900 hover:bg-black",
+    },
   ];
 
   const testimonials = [
@@ -118,33 +119,37 @@ export default function Innovation() {
       name: "Amara Adebayo",
       role: "Data Analyst",
       initials: "AA",
-      quote: "I started with AETHER HUB in March, completely new to Data Analysis. Through their comprehensive training program, I learned Excel, Power BI, and SQL. The instructors were incredibly supportive, and the hands-on approach made complex concepts easy to understand. Today, I'm confident in my data analysis skills and ready to take on new challenges in the field.",
-      gradient: "from-green-500 via-teal-500 to-blue-600"
+      quote:
+        "I started with AETHER HUB in March, completely new to Data Analysis. Through their comprehensive training program, I learned Excel, Power BI, and SQL. The instructors were incredibly supportive, and the hands-on approach made complex concepts easy to understand. Today, I'm confident in my data analysis skills and ready to take on new challenges in the field.",
+      gradient: "from-green-500 via-teal-500 to-blue-600",
     },
     {
       id: 2,
       name: "Michael Rodriguez",
       role: "Full Stack Developer",
       initials: "MR",
-      quote: "AETHER HUB transformed my career completely. The React and Node.js bootcamp was intensive but incredibly rewarding. The real-world projects and mentorship from industry experts gave me the confidence to land my dream job. The curriculum is up-to-date with the latest technologies and industry standards.",
-      gradient: "from-purple-500 via-pink-500 to-red-500"
+      quote:
+        "AETHER HUB transformed my career completely. The React and Node.js bootcamp was intensive but incredibly rewarding. The real-world projects and mentorship from industry experts gave me the confidence to land my dream job. The curriculum is up-to-date with the latest technologies and industry standards.",
+      gradient: "from-purple-500 via-pink-500 to-red-500",
     },
     {
       id: 3,
       name: "Sarah Chen",
       role: "UX/UI Designer",
       initials: "SC",
-      quote: "The UX/UI design program at AETHER HUB exceeded my expectations. From wireframing to prototyping, I learned industry-standard tools like Figma and Adobe Creative Suite. The portfolio projects I built during the course directly helped me secure interviews at top tech companies. The community support is outstanding.",
-      gradient: "from-orange-500 via-red-500 to-pink-600"
+      quote:
+        "The UX/UI design program at AETHER HUB exceeded my expectations. From wireframing to prototyping, I learned industry-standard tools like Figma and Adobe Creative Suite. The portfolio projects I built during the course directly helped me secure interviews at top tech companies. The community support is outstanding.",
+      gradient: "from-orange-500 via-red-500 to-pink-600",
     },
     {
       id: 4,
       name: "David Okonkwo",
       role: "Digital Marketing Specialist",
       initials: "DO",
-      quote: "AETHER HUB's digital marketing course opened up a whole new world for me. I learned everything from SEO and content marketing to social media strategy and analytics. The practical assignments and real client projects gave me hands-on experience that traditional courses lack. I now run my own digital marketing agency.",
-      gradient: "from-cyan-500 via-blue-500 to-indigo-600"
-    }
+      quote:
+        "AETHER HUB's digital marketing course opened up a whole new world for me. I learned everything from SEO and content marketing to social media strategy and analytics. The practical assignments and real client projects gave me hands-on experience that traditional courses lack. I now run my own digital marketing agency.",
+      gradient: "from-cyan-500 via-blue-500 to-indigo-600",
+    },
   ];
 
   // Auto-rotate testimonials
@@ -161,7 +166,9 @@ export default function Innovation() {
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
   };
 
   const featuredCities = [
@@ -398,8 +405,8 @@ export default function Innovation() {
               <Button
                 className={`transition-all duration-200 ${
                   searchQuery.trim() || selectedCategory
-                    ? 'bg-brand-blue hover:bg-blue-600 shadow-lg'
-                    : 'bg-brand-blue hover:bg-blue-600'
+                    ? "bg-brand-blue hover:bg-blue-600 shadow-lg"
+                    : "bg-brand-blue hover:bg-blue-600"
                 }`}
                 onClick={() => {
                   if (searchQuery.trim()) {
@@ -413,7 +420,8 @@ export default function Innovation() {
                       // Fallback to general academy search
                       const params = new URLSearchParams();
                       params.append("search", searchQuery);
-                      if (selectedCategory) params.append("category", selectedCategory);
+                      if (selectedCategory)
+                        params.append("category", selectedCategory);
                       window.location.href = `/academy?${params.toString()}#courses`;
                     }
                   } else if (selectedCategory) {
@@ -426,7 +434,9 @@ export default function Innovation() {
                   }
                 }}
               >
-                {searchQuery.trim() || selectedCategory ? 'Search Courses' : 'Browse All'}
+                {searchQuery.trim() || selectedCategory
+                  ? "Search Courses"
+                  : "Browse All"}
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
@@ -445,7 +455,9 @@ export default function Innovation() {
                     )}
                     {selectedCategory && (
                       <Badge variant="secondary" className="ml-2">
-                        {selectedCategory.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        {selectedCategory
+                          .replace("-", " ")
+                          .replace(/\b\w/g, (l) => l.toUpperCase())}
                       </Badge>
                     )}
                   </div>
@@ -492,13 +504,25 @@ export default function Innovation() {
                         // Fallback to search functionality
                         setSearchQuery(tag);
                         // Auto-set category based on tag
-                        if (tag.includes("Data Analysis") || tag.includes("Python")) {
+                        if (
+                          tag.includes("Data Analysis") ||
+                          tag.includes("Python")
+                        ) {
                           setSelectedCategory("data-analytics");
-                        } else if (tag.includes("Web Dev") || tag.includes("React")) {
+                        } else if (
+                          tag.includes("Web Dev") ||
+                          tag.includes("React")
+                        ) {
                           setSelectedCategory("web-dev");
-                        } else if (tag.includes("Social Media") || tag.includes("Digital Marketing")) {
+                        } else if (
+                          tag.includes("Social Media") ||
+                          tag.includes("Digital Marketing")
+                        ) {
                           setSelectedCategory("digital-marketing");
-                        } else if (tag.includes("UI/UX") || tag.includes("Video Editing")) {
+                        } else if (
+                          tag.includes("UI/UX") ||
+                          tag.includes("Video Editing")
+                        ) {
                           setSelectedCategory("ui-ux");
                         }
                       }
@@ -719,12 +743,16 @@ export default function Innovation() {
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Student Success Stories
               </h2>
-              <p className="text-lg text-gray-600">Hear from our graduates who transformed their careers</p>
+              <p className="text-lg text-gray-600">
+                Hear from our graduates who transformed their careers
+              </p>
             </div>
 
             <div className="relative">
               {/* Main Testimonial Card */}
-              <Card className={`p-12 text-center bg-gradient-to-br ${testimonials[currentTestimonial].gradient} text-white relative overflow-hidden transition-all duration-500 ease-in-out`}>
+              <Card
+                className={`p-12 text-center bg-gradient-to-br ${testimonials[currentTestimonial].gradient} text-white relative overflow-hidden transition-all duration-500 ease-in-out`}
+              >
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="relative z-10">
                   <Quote className="w-16 h-16 mx-auto mb-8 opacity-80" />
@@ -741,13 +769,17 @@ export default function Innovation() {
                   </div>
                   <div className="flex items-center justify-center space-x-4">
                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                      <span className="text-lg font-bold">{testimonials[currentTestimonial].initials}</span>
+                      <span className="text-lg font-bold">
+                        {testimonials[currentTestimonial].initials}
+                      </span>
                     </div>
                     <div className="text-left">
                       <cite className="font-bold text-lg block">
                         {testimonials[currentTestimonial].name}
                       </cite>
-                      <div className="text-sm opacity-90">{testimonials[currentTestimonial].role}</div>
+                      <div className="text-sm opacity-90">
+                        {testimonials[currentTestimonial].role}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -777,8 +809,8 @@ export default function Innovation() {
                     onClick={() => setCurrentTestimonial(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-200 ${
                       index === currentTestimonial
-                        ? 'bg-brand-blue scale-125'
-                        : 'bg-gray-300 hover:bg-gray-400'
+                        ? "bg-brand-blue scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -790,11 +822,15 @@ export default function Innovation() {
                 <div className="w-full bg-gray-200 rounded-full h-1">
                   <div
                     className="bg-brand-blue h-1 rounded-full transition-all duration-200 ease-linear"
-                    style={{ width: `${((currentTestimonial + 1) / testimonials.length) * 100}%` }}
+                    style={{
+                      width: `${((currentTestimonial + 1) / testimonials.length) * 100}%`,
+                    }}
                   ></div>
                 </div>
                 <div className="flex justify-center text-sm text-gray-500 mt-2">
-                  <span>{currentTestimonial + 1} of {testimonials.length}</span>
+                  <span>
+                    {currentTestimonial + 1} of {testimonials.length}
+                  </span>
                 </div>
               </div>
             </div>
@@ -934,7 +970,7 @@ export default function Innovation() {
                       key={social.name}
                       className={`${social.color} text-white transition-all duration-200 hover:scale-105 text-sm py-2`}
                       onClick={() => {
-                        window.open(social.url, '_blank');
+                        window.open(social.url, "_blank");
                         setShowSocialMedia(false);
                       }}
                     >

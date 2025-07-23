@@ -45,7 +45,9 @@ interface EnrollmentData {
 
 export default function Admin() {
   const [enrollments, setEnrollments] = useState<EnrollmentData[]>([]);
-  const [filteredEnrollments, setFilteredEnrollments] = useState<EnrollmentData[]>([]);
+  const [filteredEnrollments, setFilteredEnrollments] = useState<
+    EnrollmentData[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -53,12 +55,12 @@ export default function Admin() {
   const fetchEnrollments = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/.netlify/functions/enrollments');
+      const response = await fetch("/.netlify/functions/enrollments");
       const data = await response.json();
       setEnrollments(data.enrollments || []);
       setFilteredEnrollments(data.enrollments || []);
     } catch (error) {
-      console.error('Failed to fetch enrollments:', error);
+      console.error("Failed to fetch enrollments:", error);
     } finally {
       setLoading(false);
     }
@@ -73,18 +75,31 @@ export default function Admin() {
 
     // Filter by search term
     if (searchTerm) {
-      filtered = filtered.filter((enrollment) =>
-        enrollment.studentInfo.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enrollment.studentInfo.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enrollment.studentInfo.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enrollment.courseInfo.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enrollment.courseInfo.level.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter(
+        (enrollment) =>
+          enrollment.studentInfo.firstName
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          enrollment.studentInfo.lastName
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          enrollment.studentInfo.email
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          enrollment.courseInfo.category
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          enrollment.courseInfo.level
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()),
       );
     }
 
     // Filter by status
     if (statusFilter !== "all") {
-      filtered = filtered.filter((enrollment) => enrollment.status === statusFilter);
+      filtered = filtered.filter(
+        (enrollment) => enrollment.status === statusFilter,
+      );
     }
 
     setFilteredEnrollments(filtered);
@@ -93,26 +108,38 @@ export default function Admin() {
   const getStatusBadge = (status: string) => {
     const statusConfig = {
       pending_payment: { color: "bg-yellow-500", text: "Pending Payment" },
-      proof_submitted_whatsapp: { color: "bg-green-500", text: "Proof via WhatsApp" },
+      proof_submitted_whatsapp: {
+        color: "bg-green-500",
+        text: "Proof via WhatsApp",
+      },
       proof_submitted_email: { color: "bg-blue-500", text: "Proof via Email" },
       confirmed: { color: "bg-purple-500", text: "Confirmed" },
-      completed: { color: "bg-gray-500", text: "Completed" }
+      completed: { color: "bg-gray-500", text: "Completed" },
     };
 
-    const config = statusConfig[status as keyof typeof statusConfig] || 
-                   { color: "bg-gray-400", text: status };
+    const config = statusConfig[status as keyof typeof statusConfig] || {
+      color: "bg-gray-400",
+      text: status,
+    };
 
     return (
-      <Badge className={`${config.color} text-white`}>
-        {config.text}
-      </Badge>
+      <Badge className={`${config.color} text-white`}>{config.text}</Badge>
     );
   };
 
   const exportToCSV = () => {
     const csvContent = [
-      ['Name', 'Email', 'Phone', 'Course Category', 'Course Level', 'Price', 'Status', 'Date'],
-      ...filteredEnrollments.map(enrollment => [
+      [
+        "Name",
+        "Email",
+        "Phone",
+        "Course Category",
+        "Course Level",
+        "Price",
+        "Status",
+        "Date",
+      ],
+      ...filteredEnrollments.map((enrollment) => [
         `${enrollment.studentInfo.firstName} ${enrollment.studentInfo.lastName}`,
         enrollment.studentInfo.email,
         enrollment.studentInfo.phone,
@@ -120,20 +147,22 @@ export default function Admin() {
         enrollment.courseInfo.level,
         enrollment.courseInfo.price,
         enrollment.status,
-        new Date(enrollment.timestamp).toLocaleDateString()
-      ])
-    ].map(row => row.join(',')).join('\n');
+        new Date(enrollment.timestamp).toLocaleDateString(),
+      ]),
+    ]
+      .map((row) => row.join(","))
+      .join("\n");
 
-    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const blob = new Blob([csvContent], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `enrollments-${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `enrollments-${new Date().toISOString().split("T")[0]}.csv`;
     a.click();
     window.URL.revokeObjectURL(url);
   };
 
-  const uniqueStatuses = [...new Set(enrollments.map(e => e.status))];
+  const uniqueStatuses = [...new Set(enrollments.map((e) => e.status))];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -153,7 +182,7 @@ export default function Admin() {
             </div>
             <Button
               variant="outline"
-              onClick={() => window.location.href = '/'}
+              onClick={() => (window.location.href = "/")}
             >
               Back to Home
             </Button>
@@ -170,12 +199,14 @@ export default function Admin() {
                 <Users className="w-8 h-8 text-brand-blue mr-3" />
                 <div>
                   <p className="text-sm text-gray-600">Total Enrollments</p>
-                  <p className="text-2xl font-bold text-gray-900">{enrollments.length}</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {enrollments.length}
+                  </p>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
@@ -183,9 +214,13 @@ export default function Admin() {
                 <div>
                   <p className="text-sm text-gray-600">This Month</p>
                   <p className="text-2xl font-bold text-gray-900">
-                    {enrollments.filter(e => 
-                      new Date(e.timestamp).getMonth() === new Date().getMonth()
-                    ).length}
+                    {
+                      enrollments.filter(
+                        (e) =>
+                          new Date(e.timestamp).getMonth() ===
+                          new Date().getMonth(),
+                      ).length
+                    }
                   </p>
                 </div>
               </div>
@@ -199,7 +234,10 @@ export default function Admin() {
                 <div>
                   <p className="text-sm text-gray-600">Pending Payment</p>
                   <p className="text-2xl font-bold text-gray-900">
-                    {enrollments.filter(e => e.status === 'pending_payment').length}
+                    {
+                      enrollments.filter((e) => e.status === "pending_payment")
+                        .length
+                    }
                   </p>
                 </div>
               </div>
@@ -213,9 +251,11 @@ export default function Admin() {
                 <div>
                   <p className="text-sm text-gray-600">Proof Submitted</p>
                   <p className="text-2xl font-bold text-gray-900">
-                    {enrollments.filter(e => 
-                      e.status.includes('proof_submitted')
-                    ).length}
+                    {
+                      enrollments.filter((e) =>
+                        e.status.includes("proof_submitted"),
+                      ).length
+                    }
                   </p>
                 </div>
               </div>
@@ -237,27 +277,38 @@ export default function Admin() {
                     className="pl-10"
                   />
                 </div>
-                
+
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                   className="px-3 py-2 border border-gray-300 rounded-md text-sm"
                 >
                   <option value="all">All Statuses</option>
-                  {uniqueStatuses.map(status => (
+                  {uniqueStatuses.map((status) => (
                     <option key={status} value={status}>
-                      {status.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      {status
+                        .replace(/_/g, " ")
+                        .replace(/\b\w/g, (l) => l.toUpperCase())}
                     </option>
                   ))}
                 </select>
               </div>
 
               <div className="flex gap-2">
-                <Button variant="outline" onClick={fetchEnrollments} disabled={loading}>
-                  <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                <Button
+                  variant="outline"
+                  onClick={fetchEnrollments}
+                  disabled={loading}
+                >
+                  <RefreshCw
+                    className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`}
+                  />
                   Refresh
                 </Button>
-                <Button onClick={exportToCSV} disabled={filteredEnrollments.length === 0}>
+                <Button
+                  onClick={exportToCSV}
+                  disabled={filteredEnrollments.length === 0}
+                >
                   <Download className="w-4 h-4 mr-2" />
                   Export CSV
                 </Button>
@@ -298,7 +349,8 @@ export default function Admin() {
                         <TableCell>
                           <div>
                             <p className="font-medium text-gray-900">
-                              {enrollment.studentInfo.firstName} {enrollment.studentInfo.lastName}
+                              {enrollment.studentInfo.firstName}{" "}
+                              {enrollment.studentInfo.lastName}
                             </p>
                           </div>
                         </TableCell>
@@ -316,8 +368,12 @@ export default function Admin() {
                         </TableCell>
                         <TableCell>
                           <div>
-                            <p className="font-medium text-gray-900">{enrollment.courseInfo.level}</p>
-                            <p className="text-sm text-gray-600">{enrollment.courseInfo.category}</p>
+                            <p className="font-medium text-gray-900">
+                              {enrollment.courseInfo.level}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {enrollment.courseInfo.category}
+                            </p>
                           </div>
                         </TableCell>
                         <TableCell>
@@ -337,9 +393,13 @@ export default function Admin() {
                         </TableCell>
                         <TableCell>
                           <div className="text-sm text-gray-600">
-                            {new Date(enrollment.timestamp).toLocaleDateString()}
+                            {new Date(
+                              enrollment.timestamp,
+                            ).toLocaleDateString()}
                             <div className="text-xs text-gray-500">
-                              {new Date(enrollment.timestamp).toLocaleTimeString()}
+                              {new Date(
+                                enrollment.timestamp,
+                              ).toLocaleTimeString()}
                             </div>
                           </div>
                         </TableCell>

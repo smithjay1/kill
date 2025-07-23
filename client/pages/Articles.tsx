@@ -58,12 +58,17 @@ export default function Articles() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<Article[]>([]);
-  const [googleSearchResults, setGoogleSearchResults] = useState<GoogleSearchResult[]>([]);
+  const [googleSearchResults, setGoogleSearchResults] = useState<
+    GoogleSearchResult[]
+  >([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showGoogleResults, setShowGoogleResults] = useState(false);
   const [searchError, setSearchError] = useState<string>("");
-  const [searchStats, setSearchStats] = useState<{ total: string; time: number } | null>(null);
-  const [searchMode, setSearchMode] = useState<'local' | 'google'>('local');
+  const [searchStats, setSearchStats] = useState<{
+    total: string;
+    time: number;
+  } | null>(null);
+  const [searchMode, setSearchMode] = useState<"local" | "google">("local");
 
   // Simulated tech articles - In production, this would fetch from a real API
   const fetchArticles = async () => {
@@ -181,13 +186,18 @@ export default function Articles() {
       const SEARCH_ENGINE_ID = import.meta.env.VITE_GOOGLE_SEARCH_ENGINE_ID;
 
       // Check if API credentials are configured
-      if (!API_KEY || !SEARCH_ENGINE_ID || API_KEY === 'your_google_api_key_here' || SEARCH_ENGINE_ID === 'your_search_engine_id_here') {
+      if (
+        !API_KEY ||
+        !SEARCH_ENGINE_ID ||
+        API_KEY === "your_google_api_key_here" ||
+        SEARCH_ENGINE_ID === "your_search_engine_id_here"
+      ) {
         // Fallback to demo mode with simulated Google-like results
         await simulateGoogleSearch(query);
         return;
       }
 
-      const searchUrl = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${encodeURIComponent(query + ' tech technology programming development')}&num=10&safe=active`;
+      const searchUrl = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${encodeURIComponent(query + " tech technology programming development")}&num=10&safe=active`;
 
       const response = await fetch(searchUrl);
       const data: GoogleSearchResponse = await response.json();
@@ -199,17 +209,17 @@ export default function Articles() {
       if (data.items && data.items.length > 0) {
         setGoogleSearchResults(data.items);
         setSearchStats({
-          total: data.searchInformation?.totalResults || '0',
-          time: data.searchInformation?.searchTime || 0
+          total: data.searchInformation?.totalResults || "0",
+          time: data.searchInformation?.searchTime || 0,
         });
         setShowGoogleResults(true);
       } else {
-        setSearchError('No results found for your search query.');
+        setSearchError("No results found for your search query.");
         setGoogleSearchResults([]);
         setShowGoogleResults(false);
       }
     } catch (error) {
-      console.error('Google Search error:', error);
+      console.error("Google Search error:", error);
       // Fallback to demo mode on error
       await simulateGoogleSearch(query);
     } finally {
@@ -220,92 +230,120 @@ export default function Articles() {
   // Fallback function for demo purposes when API is not configured
   const simulateGoogleSearch = useCallback(async (query: string) => {
     // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const demoResults: GoogleSearchResult[] = [
       {
         title: `${query} - Complete Developer Guide | TechCrunch`,
         link: `https://techcrunch.com/search/${encodeURIComponent(query)}`,
         snippet: `Latest news and comprehensive guides about ${query}. Learn from industry experts and stay updated with the newest developments in technology.`,
-        displayLink: 'techcrunch.com',
+        displayLink: "techcrunch.com",
         formattedUrl: `https://techcrunch.com/guides/${query.toLowerCase()}`,
         pagemap: {
-          cse_thumbnail: [{ src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&h=100&fit=crop', width: '150', height: '100' }]
-        }
+          cse_thumbnail: [
+            {
+              src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&h=100&fit=crop",
+              width: "150",
+              height: "100",
+            },
+          ],
+        },
       },
       {
         title: `${query} Tutorial and Best Practices | Stack Overflow`,
         link: `https://stackoverflow.com/questions/tagged/${encodeURIComponent(query)}`,
         snippet: `Community-driven ${query} discussions, tutorials, and solutions. Get expert help and share knowledge with developers worldwide.`,
-        displayLink: 'stackoverflow.com',
+        displayLink: "stackoverflow.com",
         formattedUrl: `https://stackoverflow.com/tagged/${query.toLowerCase()}`,
         pagemap: {
-          cse_thumbnail: [{ src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=100&fit=crop', width: '150', height: '100' }]
-        }
+          cse_thumbnail: [
+            {
+              src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=100&fit=crop",
+              width: "150",
+              height: "100",
+            },
+          ],
+        },
       },
       {
         title: `${query} Documentation and Resources | MDN`,
         link: `https://developer.mozilla.org/en-US/search?q=${encodeURIComponent(query)}`,
         snippet: `Official documentation, examples, and resources for ${query}. Comprehensive reference materials for developers and learners.`,
-        displayLink: 'developer.mozilla.org',
+        displayLink: "developer.mozilla.org",
         formattedUrl: `https://developer.mozilla.org/docs/${query.toLowerCase()}`,
         pagemap: {
-          cse_thumbnail: [{ src: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=150&h=100&fit=crop', width: '150', height: '100' }]
-        }
+          cse_thumbnail: [
+            {
+              src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=150&h=100&fit=crop",
+              width: "150",
+              height: "100",
+            },
+          ],
+        },
       },
       {
         title: `${query} News and Updates | GitHub`,
         link: `https://github.com/search?q=${encodeURIComponent(query)}`,
         snippet: `Open source projects, repositories, and code examples related to ${query}. Discover the latest developments from the developer community.`,
-        displayLink: 'github.com',
+        displayLink: "github.com",
         formattedUrl: `https://github.com/topics/${query.toLowerCase()}`,
         pagemap: {
-          cse_thumbnail: [{ src: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=150&h=100&fit=crop', width: '150', height: '100' }]
-        }
-      }
+          cse_thumbnail: [
+            {
+              src: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=150&h=100&fit=crop",
+              width: "150",
+              height: "100",
+            },
+          ],
+        },
+      },
     ];
 
     setGoogleSearchResults(demoResults);
-    setSearchStats({ total: '12,500', time: 0.42 });
+    setSearchStats({ total: "12,500", time: 0.42 });
     setShowGoogleResults(true);
-    setSearchError('');
+    setSearchError("");
   }, []);
 
   // Local content search (existing functionality)
-  const searchLocalContent = useCallback(async (query: string) => {
-    if (!query.trim()) {
-      setSearchResults([]);
-      setShowGoogleResults(false);
-      return;
-    }
+  const searchLocalContent = useCallback(
+    async (query: string) => {
+      if (!query.trim()) {
+        setSearchResults([]);
+        setShowGoogleResults(false);
+        return;
+      }
 
-    setIsSearching(true);
-    try {
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      setIsSearching(true);
+      try {
+        // Simulate API delay
+        await new Promise((resolve) => setTimeout(resolve, 800));
 
-      // Filter existing articles
-      const filteredResults = articles.filter(article =>
-        article.title.toLowerCase().includes(query.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(query.toLowerCase()) ||
-        article.category.toLowerCase().includes(query.toLowerCase())
-      );
+        // Filter existing articles
+        const filteredResults = articles.filter(
+          (article) =>
+            article.title.toLowerCase().includes(query.toLowerCase()) ||
+            article.excerpt.toLowerCase().includes(query.toLowerCase()) ||
+            article.category.toLowerCase().includes(query.toLowerCase()),
+        );
 
-      setSearchResults(filteredResults);
-      setShowGoogleResults(true);
-    } catch (error) {
-      console.error("Local search error:", error);
-      setSearchResults([]);
-    } finally {
-      setIsSearching(false);
-    }
-  }, [articles]);
+        setSearchResults(filteredResults);
+        setShowGoogleResults(true);
+      } catch (error) {
+        console.error("Local search error:", error);
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    },
+    [articles],
+  );
 
   // Debounced search effect
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchQuery.trim()) {
-        if (searchMode === 'google') {
+        if (searchMode === "google") {
           searchGoogleCSE(searchQuery);
         } else {
           searchLocalContent(searchQuery);
@@ -314,7 +352,7 @@ export default function Articles() {
         setSearchResults([]);
         setGoogleSearchResults([]);
         setShowGoogleResults(false);
-        setSearchError('');
+        setSearchError("");
       }
     }, 300);
 
@@ -322,7 +360,8 @@ export default function Articles() {
   }, [searchQuery, searchMode, searchGoogleCSE, searchLocalContent]);
 
   const filteredArticles = articles.filter((article) => {
-    const matchesSearch = !searchQuery.trim() ||
+    const matchesSearch =
+      !searchQuery.trim() ||
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory =
@@ -330,7 +369,10 @@ export default function Articles() {
     return matchesSearch && matchesCategory;
   });
 
-  const displayArticles = showGoogleResults && searchMode === 'local' ? searchResults : filteredArticles;
+  const displayArticles =
+    showGoogleResults && searchMode === "local"
+      ? searchResults
+      : filteredArticles;
   const categories = [...new Set(articles.map((article) => article.category))];
   const trendingArticles = articles.filter((article) => article.trending);
 
@@ -393,34 +435,29 @@ export default function Articles() {
       {/* Search and Filter */}
       <section className="px-6 py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-
-
-
-
           {/* Search Mode Toggle */}
           <div className="flex items-center justify-center mb-6">
             <div className="bg-gray-100 p-1 rounded-lg inline-flex">
               <button
-                onClick={() => setSearchMode('local')}
+                onClick={() => setSearchMode("local")}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  searchMode === 'local'
-                    ? 'bg-white text-brand-blue shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                  searchMode === "local"
+                    ? "bg-white text-brand-blue shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 Local Articles
               </button>
               <button
-                onClick={() => setSearchMode('google')}
+                onClick={() => setSearchMode("google")}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  searchMode === 'google'
-                    ? 'bg-white text-brand-blue shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                  searchMode === "google"
+                    ? "bg-white text-brand-blue shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 Web Search (Google)
               </button>
-
             </div>
           </div>
 
@@ -432,7 +469,11 @@ export default function Articles() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               )}
               <Input
-                placeholder={searchMode === 'google' ? "Search tech topics (powered by Google)" : "Search local articles..."}
+                placeholder={
+                  searchMode === "google"
+                    ? "Search tech topics (powered by Google)"
+                    : "Search local articles..."
+                }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -520,13 +561,11 @@ export default function Articles() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             {showGoogleResults && searchQuery
-              ? `${searchMode === 'google' ? 'Web' : 'Local'} Search Results for "${searchQuery}"`
+              ? `${searchMode === "google" ? "Web" : "Local"} Search Results for "${searchQuery}"`
               : "All Articles"}
           </h2>
 
-
-
-          {showGoogleResults && searchMode === 'local' && (
+          {showGoogleResults && searchMode === "local" && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
               <div className="flex items-center text-green-800">
                 <Search className="w-5 h-5 mr-2" />
@@ -553,52 +592,55 @@ export default function Articles() {
           )}
 
           {/* Google Search Results Display */}
-          {showGoogleResults && searchMode === 'google' && googleSearchResults.length > 0 && !loading && (
-            <div className="mb-8">
-              <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
-                {googleSearchResults.map((result, index) => (
-                  <Card
-                    key={index}
-                    className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
-                    onClick={() => window.open(result.link, '_blank')}
-                  >
-                    <div className="flex gap-4 p-6">
-                      {result.pagemap?.cse_thumbnail?.[0] && (
-                        <div className="flex-shrink-0">
-                          <img
-                            src={result.pagemap.cse_thumbnail[0].src}
-                            alt={result.title}
-                            className="w-20 h-20 object-cover rounded-lg"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = 'none';
-                            }}
-                          />
+          {showGoogleResults &&
+            searchMode === "google" &&
+            googleSearchResults.length > 0 &&
+            !loading && (
+              <div className="mb-8">
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
+                  {googleSearchResults.map((result, index) => (
+                    <Card
+                      key={index}
+                      className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                      onClick={() => window.open(result.link, "_blank")}
+                    >
+                      <div className="flex gap-4 p-6">
+                        {result.pagemap?.cse_thumbnail?.[0] && (
+                          <div className="flex-shrink-0">
+                            <img
+                              src={result.pagemap.cse_thumbnail[0].src}
+                              alt={result.title}
+                              className="w-20 h-20 object-cover rounded-lg"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = "none";
+                              }}
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center mb-2">
+                            <Badge variant="outline" className="text-xs mr-2">
+                              {result.displayLink}
+                            </Badge>
+                            <ExternalLink className="w-3 h-3 text-gray-400" />
+                          </div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors line-clamp-2">
+                            {result.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm line-clamp-3 mb-2">
+                            {result.snippet}
+                          </p>
+                          <p className="text-brand-blue text-sm font-medium hover:underline">
+                            {result.formattedUrl}
+                          </p>
                         </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center mb-2">
-                          <Badge variant="outline" className="text-xs mr-2">
-                            {result.displayLink}
-                          </Badge>
-                          <ExternalLink className="w-3 h-3 text-gray-400" />
-                        </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors line-clamp-2">
-                          {result.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm line-clamp-3 mb-2">
-                          {result.snippet}
-                        </p>
-                        <p className="text-brand-blue text-sm font-medium hover:underline">
-                          {result.formattedUrl}
-                        </p>
                       </div>
-                    </div>
-                  </Card>
-                ))}
+                    </Card>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -622,7 +664,7 @@ export default function Articles() {
                   className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
                   onClick={() => {
                     // For search results, show content within the page instead of redirecting
-                    if (article.url && !article.id.startsWith('search-')) {
+                    if (article.url && !article.id.startsWith("search-")) {
                       window.open(article.url, "_blank");
                     }
                   }}
@@ -638,13 +680,13 @@ export default function Articles() {
                         Trending
                       </Badge>
                     )}
-                    {article.url && !article.id.startsWith('search-') && (
+                    {article.url && !article.id.startsWith("search-") && (
                       <Badge className="absolute top-3 right-3 bg-brand-blue text-white">
                         <ExternalLink className="w-3 h-3 mr-1" />
                         External
                       </Badge>
                     )}
-                    {article.id.startsWith('search-') && (
+                    {article.id.startsWith("search-") && (
                       <Badge className="absolute top-3 right-3 bg-green-500 text-white">
                         <Search className="w-3 h-3 mr-1" />
                         Search
@@ -681,28 +723,34 @@ export default function Articles() {
           )}
 
           {/* No Results Message */}
-          {((searchMode === 'google' && googleSearchResults.length === 0 && showGoogleResults) ||
-            (searchMode === 'local' && displayArticles.length === 0)) &&
-            !loading && !isSearching && searchQuery && (
-            <div className="text-center py-12">
-              <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500 text-lg mb-2">
-                No {searchMode === 'google' ? 'web' : 'local'} results found for "{searchQuery}"
-              </p>
-              <p className="text-gray-400 text-sm">
-                {searchMode === 'google'
-                  ? 'Try different keywords or switch to local search'
-                  : 'Try different keywords or switch to web search'
-                }
-              </p>
-            </div>
-          )}
+          {((searchMode === "google" &&
+            googleSearchResults.length === 0 &&
+            showGoogleResults) ||
+            (searchMode === "local" && displayArticles.length === 0)) &&
+            !loading &&
+            !isSearching &&
+            searchQuery && (
+              <div className="text-center py-12">
+                <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-500 text-lg mb-2">
+                  No {searchMode === "google" ? "web" : "local"} results found
+                  for "{searchQuery}"
+                </p>
+                <p className="text-gray-400 text-sm">
+                  {searchMode === "google"
+                    ? "Try different keywords or switch to local search"
+                    : "Try different keywords or switch to web search"}
+                </p>
+              </div>
+            )}
 
           {isSearching && (
             <div className="text-center py-12">
               <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-blue" />
               <p className="text-gray-500 text-lg">
-                {searchMode === 'google' ? 'Searching the web...' : 'Searching articles...'}
+                {searchMode === "google"
+                  ? "Searching the web..."
+                  : "Searching articles..."}
               </p>
             </div>
           )}
