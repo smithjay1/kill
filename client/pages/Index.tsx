@@ -276,6 +276,49 @@ export default function Index() {
           </div>
         </section>
 
+        {/* AI-Driven Branding Solutions Section */}
+        <section className="px-6 py-16 bg-gradient-to-br from-brand-blue/5 to-blue-50">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue/10 rounded-full mb-6">
+                <Building2 className="w-8 h-8 text-brand-blue" />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Innovative AI-Driven Solutions
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                At Aether Hub, we empower businesses worldwide with innovative, AI-driven branding solutions that inspire trust and fuel growth. We deliver tailored, transparent IT services to transform visions into impactful realities.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mt-12">
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">AI-Powered Branding</h3>
+                <p className="text-gray-600 text-sm">Intelligent solutions that create compelling brand identities and strategies.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <span className="text-2xl">💡</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Innovation-Driven</h3>
+                <p className="text-gray-600 text-sm">Cutting-edge approaches that keep your business ahead of the curve.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Tailored Solutions</h3>
+                <p className="text-gray-600 text-sm">Customized IT services designed specifically for your unique business needs.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* WHAT WE DO Section */}
         <section className="px-6 py-16">
           <div className="max-w-7xl mx-auto">
