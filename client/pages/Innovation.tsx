@@ -156,7 +156,7 @@ export default function Innovation() {
               {/* Logo */}
               <div className="flex items-center space-x-3">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
                   alt="AETHER HUB Logo"
                   className="w-8 h-8"
                 />
