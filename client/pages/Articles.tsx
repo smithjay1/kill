@@ -432,15 +432,10 @@ export default function Articles() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               )}
               <Input
-                placeholder={
-                  searchMode === 'google' ? "Search tech topics (powered by Google)" :
-                  searchMode === 'gcse' ? "Use Google CSE widget above for web search" :
-                  "Search local articles..."
-                }
+                placeholder={searchMode === 'google' ? "Search tech topics (powered by Google)" : "Search local articles..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
-                disabled={searchMode === 'gcse'}
               />
               {showGoogleResults && (
                 <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md mt-1 p-2 shadow-lg z-10">
