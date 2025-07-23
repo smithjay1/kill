@@ -793,9 +793,8 @@ export default function Innovation() {
                     style={{ width: `${((currentTestimonial + 1) / testimonials.length) * 100}%` }}
                   ></div>
                 </div>
-                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                <div className="flex justify-center text-sm text-gray-500 mt-2">
                   <span>{currentTestimonial + 1} of {testimonials.length}</span>
-                  <span>Auto-rotating every 5s</span>
                 </div>
               </div>
             </div>
