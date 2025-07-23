@@ -348,7 +348,20 @@ export default function Innovation() {
                   <Badge
                     key={tag}
                     variant="outline"
-                    className="cursor-pointer hover:bg-brand-blue hover:text-white"
+                    className="cursor-pointer hover:bg-brand-blue hover:text-white transition-colors duration-200"
+                    onClick={() => {
+                      setSearchQuery(tag);
+                      // Auto-set category based on tag
+                      if (tag.includes("Data Analysis")) {
+                        setSelectedCategory("data-analytics");
+                      } else if (tag.includes("Web Dev")) {
+                        setSelectedCategory("web-dev");
+                      } else if (tag.includes("Social Media")) {
+                        setSelectedCategory("digital-marketing");
+                      } else if (tag.includes("UI/UX")) {
+                        setSelectedCategory("ui-ux");
+                      }
+                    }}
                   >
                     {tag}
                   </Badge>
