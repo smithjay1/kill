@@ -164,7 +164,7 @@ Thank you!`;
     setTimeout(async () => {
       try {
         // Update status in database
-        await fetch('/api/enrollments', {
+        await fetch('/.netlify/functions/enrollments', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
