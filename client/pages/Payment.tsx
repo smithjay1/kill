@@ -92,28 +92,40 @@ export default function Payment() {
   const generateMessage = () => {
     if (!enrollmentData) return "";
 
-    return `🎓 AETHER HUB Payment Confirmation
+    return `Subject: Course Enrollment Payment Proof - ${enrollmentData.courseInfo.level}
 
-👤 Student Information:
-• Name: ${enrollmentData.studentInfo.firstName} ${enrollmentData.studentInfo.lastName}
-• Email: ${enrollmentData.studentInfo.email}
-• Phone: ${enrollmentData.studentInfo.phone}
+Dear AETHER HUB Team,
 
-📚 Course Details:
-• Category: ${enrollmentData.courseInfo.category}
-• Course: ${enrollmentData.courseInfo.level}
-• Description: ${enrollmentData.courseInfo.description}
-• Price Paid: ${enrollmentData.courseInfo.price}
-• Duration: ${enrollmentData.courseInfo.duration}
+I have completed my payment for course enrollment. Please find the details below:
 
-💳 Payment Information:
-• Amount: ${enrollmentData.courseInfo.price}
+👤 STUDENT CREDENTIALS:
+• Full Name: ${enrollmentData.studentInfo.firstName} ${enrollmentData.studentInfo.lastName}
+• Email Address: ${enrollmentData.studentInfo.email}
+• Phone Number: ${enrollmentData.studentInfo.phone}
+• Registration Date: ${new Date().toLocaleDateString()}
+
+📚 COURSE CREDENTIALS:
+• Course Category: ${enrollmentData.courseInfo.category}
+• Course Title: ${enrollmentData.courseInfo.level}
+• Course Description: ${enrollmentData.courseInfo.description}
+• Course Duration: ${enrollmentData.courseInfo.duration}
+• Course ID: ${enrollmentData.courseInfo.id}
+
+💳 PAYMENT DETAILS:
+• Amount Paid: ${enrollmentData.courseInfo.price}
+${enrollmentData.courseInfo.originalPrice ? `• Original Price: ${enrollmentData.courseInfo.originalPrice}` : ''}
 • Payment Method: Bank Transfer
-• Account: ${accountDetails.accountName}
+• Bank: ${accountDetails.bankName}
+• Account Name: ${accountDetails.accountName}
+• Account Number: ${accountDetails.accountNumber}
+• Payment Date: ${new Date().toLocaleDateString()}
 
-I have made the payment for the course enrollment. Please find the payment screenshot attached. Kindly confirm receipt and provide the next steps.
+I have attached the payment screenshot as proof of transfer. Please confirm receipt and provide the next steps for course access.
 
-Thank you!`;
+Thank you for your assistance.
+
+Best regards,
+${enrollmentData.studentInfo.firstName} ${enrollmentData.studentInfo.lastName}`;
   };
 
   const handleWhatsAppSubmission = async () => {
