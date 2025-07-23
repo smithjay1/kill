@@ -416,6 +416,16 @@ export default function Articles() {
               >
                 Web Search (Google)
               </button>
+              <button
+                onClick={() => setSearchMode('gcse')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  searchMode === 'gcse'
+                    ? 'bg-white text-brand-blue shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Google CSE Widget
+              </button>
             </div>
           </div>
 
