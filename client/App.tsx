@@ -38,6 +38,7 @@ const App = () => (
           <Route path="/google-search-demo" element={<GoogleSearchDemo />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
