@@ -320,7 +320,11 @@ export default function Innovation() {
                 </SelectContent>
               </Select>
               <Button
-                className="bg-brand-blue hover:bg-blue-600"
+                className={`transition-all duration-200 ${
+                  searchQuery.trim() || selectedCategory
+                    ? 'bg-brand-blue hover:bg-blue-600 shadow-lg'
+                    : 'bg-brand-blue hover:bg-blue-600'
+                }`}
                 onClick={() => {
                   if (searchQuery.trim() || selectedCategory) {
                     // Redirect to academy page with search parameters
@@ -335,7 +339,8 @@ export default function Innovation() {
                   }
                 }}
               >
-                Search
+                {searchQuery.trim() || selectedCategory ? 'Search Courses' : 'Browse All'}
+                <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
 
