@@ -872,9 +872,8 @@ export default function Innovation() {
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <Input
                 id="newsletter-email"
-                placeholder="melissasly786@gmail.com"
+                placeholder="example@gmail.com"
                 className="flex-1 bg-white text-gray-900"
-                defaultValue="melissasly786@gmail.com"
               />
               <Button
                 className="bg-white text-brand-blue hover:bg-gray-100"
