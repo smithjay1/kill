@@ -99,7 +99,7 @@ All courses include:
 ✅ Career support
 ✅ Access to our community
 
-We also offer **AETHER ADVANTAGE** scholarships for eligible students!`,
+We also offer **LUMORA ADVANTAGE** scholarships for eligible students!`,
             "ai",
           );
         }, 1000);
@@ -146,7 +146,7 @@ Ready to start? Click the "Get Started" button in the top navigation!`,
 
 **Website Sections:**
 • Contact page for detailed inquiries
-�� Innovation page to meet our experts
+• Innovation page to meet our experts
 • Academy page for course information
 
 We're here to help you succeed in your tech journey!`,
