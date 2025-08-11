@@ -383,7 +383,7 @@ export default function Articles() {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-3">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+              src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
               alt="LUMORA HUB Logo"
               className="w-8 h-8"
             />
@@ -764,7 +764,7 @@ export default function Articles() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
                   alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
