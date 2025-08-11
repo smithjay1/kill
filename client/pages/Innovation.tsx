@@ -120,7 +120,7 @@ export default function Innovation() {
       role: "Data Analyst",
       initials: "AA",
       quote:
-        "I started with AETHER HUB in March, completely new to Data Analysis. Through their comprehensive training program, I learned Excel, Power BI, and SQL. The instructors were incredibly supportive, and the hands-on approach made complex concepts easy to understand. Today, I'm confident in my data analysis skills and ready to take on new challenges in the field.",
+        "I started with LUMORA HUB in March, completely new to Data Analysis. Through their comprehensive training program, I learned Excel, Power BI, and SQL. The instructors were incredibly supportive, and the hands-on approach made complex concepts easy to understand. Today, I'm confident in my data analysis skills and ready to take on new challenges in the field.",
       gradient: "from-green-500 via-teal-500 to-blue-600",
     },
     {
@@ -129,7 +129,7 @@ export default function Innovation() {
       role: "Full Stack Developer",
       initials: "MR",
       quote:
-        "AETHER HUB transformed my career completely. The React and Node.js bootcamp was intensive but incredibly rewarding. The real-world projects and mentorship from industry experts gave me the confidence to land my dream job. The curriculum is up-to-date with the latest technologies and industry standards.",
+        "LUMORA HUB transformed my career completely. The React and Node.js bootcamp was intensive but incredibly rewarding. The real-world projects and mentorship from industry experts gave me the confidence to land my dream job. The curriculum is up-to-date with the latest technologies and industry standards.",
       gradient: "from-purple-500 via-pink-500 to-red-500",
     },
     {
@@ -138,7 +138,7 @@ export default function Innovation() {
       role: "UX/UI Designer",
       initials: "SC",
       quote:
-        "The UX/UI design program at AETHER HUB exceeded my expectations. From wireframing to prototyping, I learned industry-standard tools like Figma and Adobe Creative Suite. The portfolio projects I built during the course directly helped me secure interviews at top tech companies. The community support is outstanding.",
+        "The UX/UI design program at LUMORA HUB exceeded my expectations. From wireframing to prototyping, I learned industry-standard tools like Figma and Adobe Creative Suite. The portfolio projects I built during the course directly helped me secure interviews at top tech companies. The community support is outstanding.",
       gradient: "from-orange-500 via-red-500 to-pink-600",
     },
     {
@@ -147,7 +147,7 @@ export default function Innovation() {
       role: "Digital Marketing Specialist",
       initials: "DO",
       quote:
-        "AETHER HUB's digital marketing course opened up a whole new world for me. I learned everything from SEO and content marketing to social media strategy and analytics. The practical assignments and real client projects gave me hands-on experience that traditional courses lack. I now run my own digital marketing agency.",
+        "LUMORA HUB's digital marketing course opened up a whole new world for me. I learned everything from SEO and content marketing to social media strategy and analytics. The practical assignments and real client projects gave me hands-on experience that traditional courses lack. I now run my own digital marketing agency.",
       gradient: "from-cyan-500 via-blue-500 to-indigo-600",
     },
   ];
@@ -239,12 +239,12 @@ export default function Innovation() {
               {/* Logo */}
               <div className="flex items-center space-x-3">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
                 <div className="text-xl font-bold text-gray-800">
-                  AETHER HUB
+                  LUMORA HUB
                 </div>
               </div>
 
@@ -346,7 +346,7 @@ export default function Innovation() {
                 Build your Team with Industry-trained Tech Professionals
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Whether you're starting out or leveling up, AETHER HUB equips
+                Whether you're starting out or leveling up, LUMORA HUB equips
                 you with practical, real-world skills in Data Analytics, Web
                 Development, Digital Marketing, and more — all led by seasoned
                 professionals.
@@ -590,14 +590,14 @@ export default function Innovation() {
           </div>
         </section>
 
-        {/* Why AETHER HUB */}
+        {/* Why LUMORA HUB */}
         <section className="px-6 py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Why AETHER HUB?
+              Why LUMORA HUB?
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              At AETHER HUB, we don't just teach — we mentor, guide, and prepare
+              At LUMORA HUB, we don't just teach — we mentor, guide, and prepare
               learners for real-world challenges. Our curriculum is hands-on and
               industry-aligned, focusing on both foundational skills and
               advanced techniques. Whether you're just starting or looking to
@@ -999,12 +999,12 @@ export default function Innovation() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 mb-6">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                    alt="AETHER HUB Logo"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                    alt="LUMORA HUB Logo"
                     className="w-10 h-10"
                   />
                   <div className="text-2xl font-bold text-white">
-                    AETHER HUB
+                    LUMORA HUB
                   </div>
                 </div>
                 <p className="text-gray-400 text-lg leading-relaxed">
@@ -1099,7 +1099,7 @@ export default function Innovation() {
 
             <div className="border-t border-gray-800 pt-8 mt-12 text-center">
               <p className="text-gray-400">
-                &copy; 2024 AETHER HUB. All rights reserved.
+                &copy; 2024 LUMORA HUB. All rights reserved.
               </p>
             </div>
           </div>

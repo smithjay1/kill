@@ -22,11 +22,11 @@ export default function GoogleSearchDemo() {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-3">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-              alt="AETHER HUB Logo"
+              src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+              alt="LUMORA HUB Logo"
               className="w-8 h-8"
             />
-            <div className="text-xl font-bold text-gray-800">AETHER HUB</div>
+            <div className="text-xl font-bold text-gray-800">LUMORA HUB</div>
           </div>
           <div className="hidden md:flex items-center space-x-6">
             <a href="/" className="text-gray-700 hover:text-brand-blue">
@@ -209,11 +209,11 @@ export default function GoogleSearchDemo() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
-                <div className="text-xl font-bold text-white">AETHER HUB</div>
+                <div className="text-xl font-bold text-white">LUMORA HUB</div>
               </div>
               <p className="text-gray-400">
                 Empowering the next generation of tech professionals.
@@ -279,7 +279,7 @@ export default function GoogleSearchDemo() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
-            <p>&copy; 2024 AETHER HUB. All rights reserved.</p>
+            <p>&copy; 2024 LUMORA HUB. All rights reserved.</p>
           </div>
         </div>
       </footer>
