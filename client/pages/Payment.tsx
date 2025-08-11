@@ -238,7 +238,7 @@ ${enrollmentData.studentInfo.firstName} ${enrollmentData.studentInfo.lastName}`;
             }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to AETHER HUB
+            Back to LUMORA HUB
           </Button>
           <div className="flex items-center space-x-2">
             <img
