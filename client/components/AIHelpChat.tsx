@@ -33,7 +33,7 @@ export default function AIHelpChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "👋 Hi! I'm AETHER AI, your virtual assistant. I'm here to help you with information about our courses, pricing, enrollment, and more. How can I assist you today?",
+      text: "👋 Hi! I'm LUMORA AI, your virtual assistant. I'm here to help you with information about our courses, pricing, enrollment, and more. How can I assist you today?",
       sender: "ai",
       timestamp: new Date(),
     },
