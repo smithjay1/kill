@@ -126,7 +126,7 @@ export default function Index() {
                     className="block px-3 py-2 text-gray-700 hover:text-brand-blue hover:bg-gray-50 rounded-md"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    AETHER ADVANTAGE
+                    LUMORA ADVANTAGE
                   </a>
                   <div className="pt-2">
                     <Button
