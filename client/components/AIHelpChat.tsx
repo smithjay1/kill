@@ -300,7 +300,7 @@ What specific information would you like to know?`;
   const handleQuickContact = (method: "whatsapp" | "email") => {
     if (method === "whatsapp") {
       const message = encodeURIComponent(
-        "Hi AETHER HUB! I need help with your courses and would like to speak with someone.",
+        "Hi LUMORA HUB! I need help with your courses and would like to speak with someone.",
       );
       window.open(`https://wa.me/2347025340480?text=${message}`, "_blank");
     } else {
