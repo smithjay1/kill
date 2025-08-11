@@ -179,7 +179,7 @@ export default function AetherAdvantage() {
                 Innovation
               </a>
               <a
-                href="/aether-advantage"
+                href="/lumora-advantage"
                 className="text-brand-blue font-medium hover:text-blue-600 transition-colors"
               >
                 AETHER ADVANTAGE
@@ -237,7 +237,7 @@ export default function AetherAdvantage() {
                   Innovation
                 </a>
                 <a
-                  href="/aether-advantage"
+                  href="/lumora-advantage"
                   className="block px-3 py-2 text-brand-blue font-medium hover:bg-gray-50 rounded-md"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -624,7 +624,7 @@ export default function AetherAdvantage() {
                 </li>
                 <li>
                   <a
-                    href="/aether-advantage"
+                    href="/lumora-advantage"
                     className="hover:text-white transition-colors duration-200"
                   >
                     AETHER ADVANTAGE
