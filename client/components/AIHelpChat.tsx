@@ -189,7 +189,7 @@ Great for social media content creation!`,
 • Internship opportunities
 • Career guidance and job placement support
 
-Visit our AETHER ADVANTAGE page to learn more!`,
+Visit our LUMORA ADVANTAGE page to learn more!`,
     price: `💰 Our pricing structure:
 • Beginner Level: ₦50,000
 • Intermediate Level: ₦60,000
