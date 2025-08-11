@@ -300,12 +300,12 @@ export default function Academy() {
               {/* Logo */}
               <div className="flex items-center space-x-3">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
                 <div className="text-xl font-bold text-gray-800">
-                  AETHER HUB
+                  LUMORA HUB
                 </div>
               </div>
 
@@ -410,7 +410,7 @@ export default function Academy() {
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Break into tech. Build your skills. Land your dream job. At{" "}
-                <strong>AETHER HUB</strong>, we don't just teach—we mentor,
+                <strong>LUMORA HUB</strong>, we don't just teach—we mentor,
                 guide, and equip you with future-ready skills for real-world
                 impact. From mastering tools like SQL, Power BI, ReactJS, or
                 CapCut to building professional portfolios, your transformation
@@ -625,12 +625,12 @@ export default function Academy() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 mb-6">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-                    alt="AETHER HUB Logo"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2Fc834e0e7d61b4d6c8ab3dc57953cf518?format=webp&width=800"
+                    alt="LUMORA HUB Logo"
                     className="w-10 h-10"
                   />
                   <div className="text-2xl font-bold text-white">
-                    AETHER HUB
+                    LUMORA HUB
                   </div>
                 </div>
                 <p className="text-gray-400 text-lg leading-relaxed">
@@ -723,7 +723,7 @@ export default function Academy() {
 
             <div className="border-t border-gray-800 pt-8 mt-12 text-center">
               <p className="text-gray-400">
-                &copy; 2024 AETHER HUB. All rights reserved.
+                &copy; 2024 LUMORA HUB. All rights reserved.
               </p>
             </div>
           </div>
