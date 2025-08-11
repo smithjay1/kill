@@ -122,7 +122,7 @@ export default function Index() {
                     Innovation
                   </a>
                   <a
-                    href="/aether-advantage"
+                    href="/lumora-advantage"
                     className="block px-3 py-2 text-gray-700 hover:text-brand-blue hover:bg-gray-50 rounded-md"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
