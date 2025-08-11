@@ -146,7 +146,7 @@ Ready to start? Click the "Get Started" button in the top navigation!`,
 
 **Website Sections:**
 • Contact page for detailed inquiries
-• Innovation page to meet our experts
+�� Innovation page to meet our experts
 • Academy page for course information
 
 We're here to help you succeed in your tech journey!`,
@@ -159,7 +159,7 @@ We're here to help you succeed in your tech journey!`,
 
   const predefinedResponses: { [key: string]: string } = {
     hello:
-      "Hello! Welcome to AETHER HUB! 👋 I'm here to help you with any questions about our tech courses and programs.",
+      "Hello! Welcome to LUMORA HUB! 👋 I'm here to help you with any questions about our tech courses and programs.",
     hi: "Hi there! 😊 How can I assist you with your tech learning journey today?",
     help: "I'm here to help! I can provide information about our courses, pricing, enrollment process, schedules, and more. What would you like to know?",
     "data analytics": `📊 Our Data Analytics track includes:
