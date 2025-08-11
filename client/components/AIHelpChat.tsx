@@ -182,7 +182,7 @@ Perfect for building modern, professional websites and applications!`,
 • Professional Workflows
 
 Great for social media content creation!`,
-    scholarship: `🎓 AETHER ADVANTAGE offers:
+    scholarship: `🎓 LUMORA ADVANTAGE offers:
 • Up to 100% course scholarships
 • Monthly 1-on-1 mentorship sessions
 • Project-based learning tracks
