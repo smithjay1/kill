@@ -35,16 +35,16 @@ export default function Index() {
               {/* Logo */}
               <div className="flex items-center space-x-3">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
                 <div className="text-xl font-bold text-gray-800 hidden md:block">
-                  AETHER HUB
+                  LUMORA HUB
                 </div>
                 {isMobileMenuOpen && (
                   <div className="text-xl font-bold text-gray-800 md:hidden transition-all duration-300 ease-in-out">
-                    AETHER HUB
+                    LUMORA HUB
                   </div>
                 )}
               </div>
@@ -122,11 +122,11 @@ export default function Index() {
                     Innovation
                   </a>
                   <a
-                    href="/aether-advantage"
+                    href="/lumora-advantage"
                     className="block px-3 py-2 text-gray-700 hover:text-brand-blue hover:bg-gray-50 rounded-md"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    AETHER ADVANTAGE
+                    LUMORA ADVANTAGE
                   </a>
                   <div className="pt-2">
                     <Button
@@ -233,10 +233,10 @@ export default function Index() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  AETHER HUB = Impact
+                  LUMORA HUB = Impact
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  AETHER HUB is a learning and innovation-driven platform
+                  LUMORA HUB is a learning and innovation-driven platform
                   focused on delivering practical, expert-led tech training. Our
                   programs are designed to empower students, creators, and
                   companies with globally relevant skills.
@@ -287,7 +287,7 @@ export default function Index() {
                 Innovative AI-Driven Solutions
               </h2>
               <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                At Aether Hub, we empower businesses worldwide with innovative,
+                At LUMORA HUB, we empower businesses worldwide with innovative,
                 AI-driven branding solutions that inspire trust and fuel growth.
                 We deliver tailored, transparent IT services to transform
                 visions into impactful realities.
@@ -578,7 +578,7 @@ export default function Index() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  AETHER HUB believes mentorship is a powerful tool for personal
+                  LUMORA HUB believes mentorship is a powerful tool for personal
                   and professional growth.
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
@@ -621,7 +621,7 @@ export default function Index() {
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
               Join thousands of learners who have transformed their careers with
-              AETHER HUB. Your journey to tech excellence starts with a single
+              LUMORA HUB. Your journey to tech excellence starts with a single
               step.
             </p>
             <div className="mt-8 flex justify-center space-x-8 text-sm opacity-80">
@@ -644,12 +644,12 @@ export default function Index() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 mb-6">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                    alt="AETHER HUB Logo"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                    alt="LUMORA HUB Logo"
                     className="w-10 h-10"
                   />
                   <div className="text-2xl font-bold text-white">
-                    AETHER HUB
+                    LUMORA HUB
                   </div>
                 </div>
                 <p className="text-gray-400 text-lg leading-relaxed">
@@ -742,7 +742,7 @@ export default function Index() {
 
             <div className="border-t border-gray-800 pt-8 mt-12 text-center">
               <p className="text-gray-400">
-                &copy; 2024 AETHER HUB. All rights reserved.
+                &copy; 2024 LUMORA HUB. All rights reserved.
               </p>
             </div>
           </div>

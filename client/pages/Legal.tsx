@@ -23,11 +23,11 @@ export default function Legal() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                alt="AETHER HUB Logo"
+                src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                alt="LUMORA HUB Logo"
                 className="w-8 h-8"
               />
-              <div className="text-xl font-bold text-gray-800">AETHER HUB</div>
+              <div className="text-xl font-bold text-gray-800">LUMORA HUB</div>
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -228,7 +228,7 @@ export default function Legal() {
                     1. Acceptance of Terms
                   </h3>
                   <p className="leading-relaxed">
-                    By accessing and using AETHER HUB's services, you agree to
+                    By accessing and using LUMORA HUB's services, you agree to
                     be bound by these Terms of Service. If you do not agree to
                     these terms, please do not use our services.
                   </p>
@@ -284,7 +284,7 @@ export default function Legal() {
                   </h3>
                   <p className="leading-relaxed">
                     All course materials, including videos, documents, and
-                    presentations, are the intellectual property of AETHER HUB.
+                    presentations, are the intellectual property of LUMORA HUB.
                     Unauthorized reproduction or distribution is strictly
                     prohibited.
                   </p>
@@ -306,7 +306,7 @@ export default function Legal() {
                     6. Limitation of Liability
                   </h3>
                   <p className="leading-relaxed">
-                    AETHER HUB is not liable for any indirect, incidental, or
+                    LUMORA HUB is not liable for any indirect, incidental, or
                     consequential damages arising from the use of our services.
                     Our total liability is limited to the amount paid for the
                     specific course.
@@ -459,11 +459,11 @@ export default function Legal() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-8 h-8"
                 />
-                <div className="text-xl font-bold text-white">AETHER HUB</div>
+                <div className="text-xl font-bold text-white">LUMORA HUB</div>
               </div>
               <p className="text-gray-400">
                 Empowering the next generation of tech professionals.
@@ -529,7 +529,7 @@ export default function Legal() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
-            <p>&copy; 2024 AETHER HUB. All rights reserved.</p>
+            <p>&copy; 2024 LUMORA HUB. All rights reserved.</p>
           </div>
         </div>
       </footer>

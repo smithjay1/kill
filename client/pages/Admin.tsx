@@ -172,12 +172,12 @@ export default function Admin() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F05633beba53c4764bcf34c72b523c1b7%2F4a06828822da45c4870e6864312e9b18?format=webp&width=800"
-                alt="AETHER HUB Logo"
+                src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                alt="LUMORA HUB Logo"
                 className="w-8 h-8"
               />
               <div className="text-xl font-bold text-gray-800">
-                AETHER HUB - Admin Dashboard
+                LUMORA HUB - Admin Dashboard
               </div>
             </div>
             <Button

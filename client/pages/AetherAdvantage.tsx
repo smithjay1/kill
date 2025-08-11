@@ -151,11 +151,11 @@ export default function AetherAdvantage() {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-                alt="AETHER HUB Logo"
+                src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                alt="LUMORA HUB Logo"
                 className="w-8 h-8"
               />
-              <div className="text-xl font-bold text-gray-800">AETHER HUB</div>
+              <div className="text-xl font-bold text-gray-800">LUMORA HUB</div>
             </div>
 
             {/* Desktop Navigation */}
@@ -179,7 +179,7 @@ export default function AetherAdvantage() {
                 Innovation
               </a>
               <a
-                href="/aether-advantage"
+                href="/lumora-advantage"
                 className="text-brand-blue font-medium hover:text-blue-600 transition-colors"
               >
                 AETHER ADVANTAGE
@@ -237,7 +237,7 @@ export default function AetherAdvantage() {
                   Innovation
                 </a>
                 <a
-                  href="/aether-advantage"
+                  href="/lumora-advantage"
                   className="block px-3 py-2 text-brand-blue font-medium hover:bg-gray-50 rounded-md"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -594,11 +594,11 @@ export default function AetherAdvantage() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3 mb-6">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F002f3fbf578949a7be6bcc802417e5ce%2F95cd289e2a7540f08aa477797bfdd222?format=webp&width=800"
-                  alt="AETHER HUB Logo"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F9541d16e06394632b471b4fa86af0188%2F7c2a5a6ba5504317888722f3a307de45?format=webp&width=800"
+                  alt="LUMORA HUB Logo"
                   className="w-10 h-10"
                 />
-                <div className="text-2xl font-bold text-white">AETHER HUB</div>
+                <div className="text-2xl font-bold text-white">LUMORA HUB</div>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed">
                 Unlocking opportunities through scholarships and mentorship for
@@ -624,7 +624,7 @@ export default function AetherAdvantage() {
                 </li>
                 <li>
                   <a
-                    href="/aether-advantage"
+                    href="/lumora-advantage"
                     className="hover:text-white transition-colors duration-200"
                   >
                     AETHER ADVANTAGE
@@ -690,7 +690,7 @@ export default function AetherAdvantage() {
 
           <div className="border-t border-gray-800 pt-8 mt-12 text-center">
             <p className="text-gray-400">
-              &copy; 2024 AETHER HUB. All rights reserved.
+              &copy; 2024 LUMORA HUB. All rights reserved.
             </p>
           </div>
         </div>

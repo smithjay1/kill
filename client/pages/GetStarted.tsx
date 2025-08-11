@@ -178,7 +178,7 @@ export default function GetStarted() {
             onClick={() => window.history.back()}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to AETHER HUB
+            Back to LUMORA HUB
           </Button>
         </div>
       </div>

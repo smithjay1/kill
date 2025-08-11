@@ -33,7 +33,7 @@ export default function AIHelpChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "👋 Hi! I'm AETHER AI, your virtual assistant. I'm here to help you with information about our courses, pricing, enrollment, and more. How can I assist you today?",
+      text: "👋 Hi! I'm LUMORA AI, your virtual assistant. I'm here to help you with information about our courses, pricing, enrollment, and more. How can I assist you today?",
       sender: "ai",
       timestamp: new Date(),
     },
@@ -99,7 +99,7 @@ All courses include:
 ✅ Career support
 ✅ Access to our community
 
-We also offer **AETHER ADVANTAGE** scholarships for eligible students!`,
+We also offer **LUMORA ADVANTAGE** scholarships for eligible students!`,
             "ai",
           );
         }, 1000);
@@ -159,7 +159,7 @@ We're here to help you succeed in your tech journey!`,
 
   const predefinedResponses: { [key: string]: string } = {
     hello:
-      "Hello! Welcome to AETHER HUB! 👋 I'm here to help you with any questions about our tech courses and programs.",
+      "Hello! Welcome to LUMORA HUB! 👋 I'm here to help you with any questions about our tech courses and programs.",
     hi: "Hi there! 😊 How can I assist you with your tech learning journey today?",
     help: "I'm here to help! I can provide information about our courses, pricing, enrollment process, schedules, and more. What would you like to know?",
     "data analytics": `📊 Our Data Analytics track includes:
@@ -182,14 +182,14 @@ Perfect for building modern, professional websites and applications!`,
 • Professional Workflows
 
 Great for social media content creation!`,
-    scholarship: `🎓 AETHER ADVANTAGE offers:
+    scholarship: `🎓 LUMORA ADVANTAGE offers:
 • Up to 100% course scholarships
 • Monthly 1-on-1 mentorship sessions
 • Project-based learning tracks
 • Internship opportunities
 • Career guidance and job placement support
 
-Visit our AETHER ADVANTAGE page to learn more!`,
+Visit our LUMORA ADVANTAGE page to learn more!`,
     price: `💰 Our pricing structure:
 • Beginner Level: ₦50,000
 • Intermediate Level: ₦60,000
@@ -300,7 +300,7 @@ What specific information would you like to know?`;
   const handleQuickContact = (method: "whatsapp" | "email") => {
     if (method === "whatsapp") {
       const message = encodeURIComponent(
-        "Hi AETHER HUB! I need help with your courses and would like to speak with someone.",
+        "Hi LUMORA HUB! I need help with your courses and would like to speak with someone.",
       );
       window.open(`https://wa.me/2347025340480?text=${message}`, "_blank");
     } else {
@@ -333,7 +333,7 @@ What specific information would you like to know?`;
               <Bot className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-semibold">AETHER AI</div>
+              <div className="font-semibold">LUMORA AI</div>
               <div className="text-xs opacity-90">Online • Ready to help</div>
             </div>
           </div>
@@ -463,7 +463,7 @@ What specific information would you like to know?`;
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-                  placeholder="Ask me anything about AETHER HUB..."
+                  placeholder="Ask me anything about LUMORA HUB..."
                   className="flex-1"
                 />
                 <Button
