@@ -463,7 +463,7 @@ What specific information would you like to know?`;
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-                  placeholder="Ask me anything about AETHER HUB..."
+                  placeholder="Ask me anything about LUMORA HUB..."
                   className="flex-1"
                 />
                 <Button
