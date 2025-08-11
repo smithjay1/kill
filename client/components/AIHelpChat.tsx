@@ -333,7 +333,7 @@ What specific information would you like to know?`;
               <Bot className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-semibold">AETHER AI</div>
+              <div className="font-semibold">LUMORA AI</div>
               <div className="text-xs opacity-90">Online • Ready to help</div>
             </div>
           </div>
